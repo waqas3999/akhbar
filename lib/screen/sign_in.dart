@@ -43,11 +43,10 @@ class _SignInState extends State<SignIn> {
               Text("تسجيل داخل",style:login),
               SizedBox(height: 10,),
               CombineTextField(),
-
-              SizedBox(height: 5,),
-               Row(
+              Row(
                  mainAxisAlignment: MainAxisAlignment.end,
                  children: [
+                   Spacer(),
                    Text("تذكرنى",style: login,),
                    Checkbox(
                        value: checked, onChanged:(bool? value){
