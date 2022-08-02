@@ -43,20 +43,27 @@ class _SignInState extends State<SignIn> {
               Text("تسجيل داخل",style:login),
               SizedBox(height: 10,),
               CombineTextField(),
+              SizedBox(height: 10,),
               Row(
                  mainAxisAlignment: MainAxisAlignment.end,
                  children: [
-                   Spacer(),
                    Text("تذكرنى",style: login,),
-                   Checkbox(
-                       value: checked, onChanged:(bool? value){
-                     setState(() {
-                       checked = value!;
-                     });
-                   }),
+                   SizedBox(
+                     width: 20.0,
+                     height: 20.0,
+                     child: Checkbox(
+                         // materialTapTargetSize:,
+
+                         value: checked, onChanged:(bool? value){
+                       setState(() {
+                         checked = value!;
+                       });
+                     }),
+                   ),
                  ],
                ),
-                 AppButton(label:"تسجيل الداخل" ,
+              SizedBox(height: 10,),
+              AppButton(label:"تسجيل الداخل" ,
                   textColor:0xffF1F1F1, buttoncolor:0xFF0000FF, onPress: (){
                     Navigator.of(context).push(MaterialPageRoute(builder: (_)=> Landing()));
                   }),
