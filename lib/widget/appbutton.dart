@@ -10,7 +10,7 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment:Alignment.bottomCenter,
+      alignment:Alignment.center,
       width: MediaQuery.of(context).size.width,
       height: 52,
       padding: const EdgeInsets.all(10),

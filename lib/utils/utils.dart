@@ -4,14 +4,17 @@ import 'package:google_fonts/google_fonts.dart';
 ///Colors
 Color app_Blackcolor=Color(0xFF000000);
 Color app_Greycolor=Color(0xFFBFBFBF);
-Color app_Bluecolor=Color(0xFF4169e1);
+Color app_Bluecolor=Color(0xFF234EC4);
 Color app_Whitecolor=Color(0xFFFFFFFF);
 Color app_Btn_bgcolor=Color(0xFFE0E0E0);
 Color app_Grey_textcolor=Color(0xFFA8A8A8);
 Color app_Cont_Textcolor=Color(0xFFF6F6F6);
 Color app_hscolor=Color(0xFF5F5F5F);
-Color app_redcolor=Color(0xFFFF0000);
-
+Color app_redcolor=Color(0xFFD62B47);
+Color app_menuscreen_color=Color(0xFF1D253C);
+Color app_menu_textcolor=Color(0xFF8E929E);
+Color app_menu_roundbuttoncolor=Color(0xFF28324E);
+Color app_menu_listsepratercolor=Color(0xFF232A41);
 
 TextStyle login=GoogleFonts.poppins(
     fontSize: 22,
@@ -57,9 +60,20 @@ TextStyle share=GoogleFonts.poppins(
     decoration: TextDecoration.underline,
     letterSpacing: 20*( 3 / 100)
 );
+TextStyle heading8=GoogleFonts.poppins(
+    fontSize: 17,
+    fontWeight: FontWeight.w500,
+    color: app_menu_textcolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 63.5*(-0.5 / 100)
+);
 
-
-
+TextStyle txtfield_menu=GoogleFonts.poppins(
+fontSize: 17,
+fontWeight: FontWeight.w500,
+color: app_menu_textcolor,
+fontStyle: FontStyle.normal,
+letterSpacing: 63.5*(-0.5 / 100));
 ///Hello,
 /*
 TextStyle heading2=GoogleFonts.poppins(
