@@ -2,54 +2,44 @@ import 'package:akhbar/model/akhbar.dart';
 import 'package:akhbar/screen/landing.dart';
 import 'package:akhbar/utils/utils.dart';
 import 'package:flutter/material.dart';
-class ListField extends StatefulWidget {
+class HomeField extends StatefulWidget {
   final String label;
 
-  const ListField({Key? key, required this.label}) : super(key: key);
+  const HomeField({Key? key, required this.label}) : super(key: key);
 
   @override
-  State<ListField> createState() => _ListFieldState();
+  State<HomeField> createState() => _HomeFieldState();
 }
 
-class _ListFieldState extends State<ListField> {
+class _HomeFieldState extends State<HomeField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-       // padding: const EdgeInsets.only(left:10 ,right: 22),
-     // width: MediaQuery.of(context).size.width,
-      height: 59,
-      alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: app_Greycolor,
-
-        //border: Border.all(color: app_Cont_Textcolor, width: 1),
-       // borderRadius: BorderRadius.circular(10)
-      ),
+        color: app_menuscreen_color,),
       child: GestureDetector(
         onTap: (){
-
           if(Akhbar.akhbar.contains(widget.label))
           {
             Akhbar.selecteditem=widget.label;
           }
-         /* ApiResponseService apiresponse= ApiResponseService();
-          var ans =  await apiresponse.getResponseCity(apiKey: ApiKey.key, cityName:widget.label);
-         */
           Akhbar.selecteditem=widget.label;
           Navigator.pop(context);
           Navigator.of(context)
               .push(
               MaterialPageRoute(builder: (_) =>  Landing()));
         },
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [/*
-            SizedBox(width: 5,child: Divider(
-              height: 2,
-              thickness: 2,
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [Text(widget.label,style: listtile_text),],
+            ),
+            Divider(
+              thickness: 1,
+              height: 1,
               color: app_menu_textcolor,
-            ),),*/
-            Text(widget.label,style: heading8),
+            )
           ],
         ),
       ),

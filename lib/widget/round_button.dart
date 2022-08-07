@@ -14,7 +14,7 @@ class Round_Button extends StatelessWidget {
       //padding: const EdgeInsets.all(2),
       alignment: Alignment.center,
       width: 50,
-      height: 72,
+      height: 50,
       decoration: BoxDecoration(
         shape:BoxShape.circle ,
           color: app_menu_roundbuttoncolor),

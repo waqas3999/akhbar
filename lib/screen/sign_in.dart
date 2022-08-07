@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 
 import 'package:akhbar/screen/landing.dart';
 import 'package:akhbar/utils/utils.dart';
@@ -72,21 +71,16 @@ class _SignInState extends State<SignIn> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 160,
+                    width: 175,
                     height: 2,
                     color: app_Greycolor,
                   ),
-                  SizedBox(width: 8,),
+                  SizedBox(width: 2,),
                   Text("أو",style: or,),
-                  SizedBox(width: 8,),
+                  SizedBox(width: 2,),
                   Container(
-                    width: 160,
+                    width: 175,
                     height: 2,
-                    color: app_Grey_textcolor,
-                  ),
-                  Divider(
-                    height: 2,
-                    thickness: 2,
                     color: app_Grey_textcolor,
                   ),
                   ],),

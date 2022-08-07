@@ -15,6 +15,13 @@ Color app_menuscreen_color=Color(0xFF1D253C);
 Color app_menu_textcolor=Color(0xFF8E929E);
 Color app_menu_roundbuttoncolor=Color(0xFF28324E);
 Color app_menu_listsepratercolor=Color(0xFF232A41);
+TextStyle heading1=GoogleFonts.poppins(
+    fontSize: 17,
+    fontWeight: FontWeight.w500,
+    color: app_Blackcolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 20*( 3 / 100)
+);
 
 TextStyle login=GoogleFonts.poppins(
     fontSize: 22,
@@ -63,7 +70,7 @@ TextStyle share=GoogleFonts.poppins(
 TextStyle heading8=GoogleFonts.poppins(
     fontSize: 17,
     fontWeight: FontWeight.w500,
-    color: app_menu_textcolor,
+    color: app_menu_listsepratercolor,
     fontStyle: FontStyle.normal,
     letterSpacing: 63.5*(-0.5 / 100)
 );
@@ -74,6 +81,13 @@ fontWeight: FontWeight.w500,
 color: app_menu_textcolor,
 fontStyle: FontStyle.normal,
 letterSpacing: 63.5*(-0.5 / 100));
+
+TextStyle listtile_text=GoogleFonts.poppins(
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+    color: app_Whitecolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 63.5*(-0.5 / 100));
 ///Hello,
 /*
 TextStyle heading2=GoogleFonts.poppins(

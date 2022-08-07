@@ -1,15 +1,12 @@
-
 import 'package:akhbar/model/akhbar.dart';
 import 'package:akhbar/screen/landing.dart';
 import 'package:akhbar/screen/sign_in.dart';
 import 'package:akhbar/utils/utils.dart';
-import 'package:akhbar/widget/btn_menu.dart';
 import 'package:akhbar/widget/combine_button.dart';
-import 'package:akhbar/widget/combine_textfield.dart';
-import 'package:akhbar/widget/tile.dart';
 import 'package:akhbar/widget/listfield.dart';
 import 'package:akhbar/widget/menu_txtfield.dart';
 import 'package:akhbar/widget/round_button.dart';
+import 'package:akhbar/widget/side_menu_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -32,7 +29,7 @@ class MenuScreen extends StatelessWidget {
             )),
         leadingWidth: 35,
 
-        title:    Image.asset("images/akhbar.jpg",scale: 3,),
+        title:    Image.asset("images/logo.PNG",scale: 3,),
         centerTitle: true,
         shadowColor: app_Whitecolor,
         toolbarHeight: 64,
@@ -56,77 +53,21 @@ class MenuScreen extends StatelessWidget {
          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Menu_textField(),
-            SizedBox(height: 10,),
-         Combine_Buttton(),
          SizedBox(height: 20,),
-/*         Expanded(
-           child: ListView.builder(
-             //shrinkWrap: true,
-             //scrollDirection: Axis.vertical,
-             //padding: EdgeInsets.zero,
-               itemCount: Akhbar.akhbar.length,
-               itemBuilder: (BuildContext context,int index){
-                 return  Material(
-                   child: ListTile(
-                     title: Container(
-                       alignment: Alignment.centerRight,
-                         decoration: BoxDecoration(
-                           border: Border(bottom: BorderSide(width: 1.0,color: app_menu_textcolor)),
-                      ),
-                       child: Text(
-                         "${Akhbar.akhbar[index]}",style:txtfield_menu,
-                         maxLines: 1,
-                         textAlign: TextAlign.center,
-
-                       ),
-                     ),
-                 ));
-               }
-
-           ),
-         ),*/
-            /* Expanded(
-              child: ListView.builder(
-                itemCount:Akhbar.akhbar.length ,
-                itemBuilder: (BuildContext context,int index){
-                  return Material(
-                    child: ListTile(title: Text("${Akhbar.akhbar[index]}",
-                      style:txtfield_menu,
-                      textAlign: TextAlign.end,
-                    )),
-                  );}),
-            ),*/
-          /*Expanded(
-            child: ListView.separated(
-              //padding:  EdgeInsets.all(4),
-              itemCount: Akhbar.akhbar.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Material(
-                  color: app_menuscreen_color,
-                  child: ListTile(
-                      title: Text("${Akhbar.akhbar[index]}", style:txtfield_menu,
-                        textAlign: TextAlign.end),
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (_)=>Landing()));
-                      }
-                    ),
-                );
-              },
-              separatorBuilder: (BuildContext context, int index) =>  Divider(
-                thickness: 1,
-                height: 1,
-                color:app_menu_textcolor,),),),
-            */
-            //Listfield(),
-            SizedBox(height: 10,),
+         Combine_Buttton(),
+    SizedBox(height: 10,),
+    HomeField(label: 'الرئيسية',),
+            SideMenuList(),
+            //SizedBox(height: 20,),
             Container(
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width,
-              height: 50,
+              height: 70,
               decoration: BoxDecoration(
                 color: app_menuscreen_color
               ),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                children: [
                  Round_Button(onPress: () {  },imcon: "images/ficon.png",iconcolor:0xFF8E929E,),
                  SizedBox(width: 15,),
@@ -141,7 +82,7 @@ class MenuScreen extends StatelessWidget {
                  Round_Button(onPress: () {  },imcon: "images/telegram.png",iconcolor:0xFF8E929E,)
               ]),
             ),
-            SizedBox(height: 20,)
+            SizedBox(height: 10,)
       ])
     )
     );

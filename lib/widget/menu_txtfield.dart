@@ -6,26 +6,28 @@ class Menu_textField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textAlignVertical: TextAlignVertical.center,
       textAlign: TextAlign.right,
       decoration: InputDecoration(
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color:app_menu_textcolor, width: 1.5),
+        isDense: true,
+        suffixIconConstraints: BoxConstraints(
+          minHeight: 22,
+          minWidth: 22,
         ),
-        ///border: UnderlineInputBorder(),
-        hintText: "بحث عن",hintStyle:TextStyle(
-        fontSize: 17,
-        fontWeight: FontWeight.w500,
-        color: app_menu_textcolor,
-        fontStyle: FontStyle.normal,
-      ) ,
-    /*    prefixIcon: Padding(
-          padding:  EdgeInsetsDirectional.all(0.0),
-          child: ImageIcon(AssetImage("images/searching.png"))),*/
-    
-        suffixIcon:/*Icon(Icons.search_rounded)*/ Padding(
-              padding:  EdgeInsetsDirectional.all(20),
-              child: /*Icon(Icons.search_rounded)*/ImageIcon(AssetImage("images/searching.png"),
-                color: app_menu_textcolor)),
-        ));
+
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color:app_menu_textcolor, ),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color:app_menu_textcolor, ),
+        ),
+        hintText: "بحث عن",
+        hintStyle: txtfield_menu,
+        suffixIcon: Padding(
+          padding: const EdgeInsets.only(left: 5),
+          child: Image.asset("images/searching.png" ,width: 20,height: 20,color: app_menu_textcolor,),
+        ),
+      ),
+    );
   }
 }

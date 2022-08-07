@@ -1,4 +1,5 @@
 import 'package:akhbar/screen/sign_in.dart';
+import 'package:akhbar/screen/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
