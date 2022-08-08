@@ -9,6 +9,7 @@ class SideMenuList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.separated(
+        shrinkWrap: true,
         itemCount:Akhbar.akhbar.length,
         separatorBuilder: (BuildContext context, int index) =>  Divider(
           thickness: 1,

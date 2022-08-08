@@ -97,4 +97,4 @@ flutter:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "images/akhbar_launch.png"
+  image_path: "images/red_launcher_icon.png"

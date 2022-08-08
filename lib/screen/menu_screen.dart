@@ -1,4 +1,3 @@
-import 'package:akhbar/model/akhbar.dart';
 import 'package:akhbar/screen/landing.dart';
 import 'package:akhbar/screen/sign_in.dart';
 import 'package:akhbar/utils/utils.dart';
@@ -50,7 +49,6 @@ class MenuScreen extends StatelessWidget {
       body:Padding(
         padding: EdgeInsets.only(left: 10,right: 10),
         child: Column(
-         crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Menu_textField(),
          SizedBox(height: 20,),
@@ -67,18 +65,18 @@ class MenuScreen extends StatelessWidget {
                 color: app_menuscreen_color
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                children: [
                  Round_Button(onPress: () {  },imcon: "images/ficon.png",iconcolor:0xFF8E929E,),
-                 SizedBox(width: 15,),
+                 /*SizedBox(width: 15,),*/
                  Round_Button(onPress: () {  },imcon: "images/instagram.png",iconcolor:0xFF8E929E,),
-                 SizedBox(width: 15,),
+                 /*SizedBox(width: 15,),*/
                  Round_Button(onPress: () {  },imcon: "images/youtube.png",iconcolor:0xFF8E929E,),
-                 SizedBox(width: 15,),
+                /* SizedBox(width: 15,),*/
                  Round_Button(onPress: () {  },imcon: "images/twitter.png",iconcolor:0xFF8E929E,),
-                 SizedBox(width: 15,),
+                /* SizedBox(width: 15,),*/
                  Round_Button(onPress: () {  },imcon: "images/linkedin.png",iconcolor:0xFF8E929E,),
-                 SizedBox(width: 15,),
+                /* SizedBox(width: 15,),*/
                  Round_Button(onPress: () {  },imcon: "images/telegram.png",iconcolor:0xFF8E929E,)
               ]),
             ),

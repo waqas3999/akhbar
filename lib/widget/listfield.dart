@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class HomeField extends StatefulWidget {
   final String label;
 
-  const HomeField({Key? key, required this.label}) : super(key: key);
+  HomeField({Key? key, required this.label}) : super(key: key);
 
   @override
   State<HomeField> createState() => _HomeFieldState();
@@ -29,16 +29,18 @@ class _HomeFieldState extends State<HomeField> {
               .push(
               MaterialPageRoute(builder: (_) =>  Landing()));
         },
-        child: Column(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [Text(widget.label,style: listtile_text),],
-            ),
-            Divider(
-              thickness: 1,
-              height: 1,
-              color: app_menu_textcolor,
+            Text(widget.label,style: listtile_text),
+            Column(
+              children: [
+                Divider(
+                  thickness: 1,
+                  height: 1,
+                  color: app_menu_textcolor,
+                ),
+              ],
             )
           ],
         ),

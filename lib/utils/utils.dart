@@ -15,6 +15,11 @@ Color app_menuscreen_color=Color(0xFF1D253C);
 Color app_menu_textcolor=Color(0xFF8E929E);
 Color app_menu_roundbuttoncolor=Color(0xFF28324E);
 Color app_menu_listsepratercolor=Color(0xFF232A41);
+Color app_tickercolor=Color(0xFFD32D54);
+Color twitter_color=Color(0xFF4AA0EC);
+Color headline2=Color(0xFF777777);
+Color tab_textcolor=Color(0xFF0A0A0A);
+Color tab_unselectedcolor=Color(0xFFA7A7A7);
 TextStyle heading1=GoogleFonts.poppins(
     fontSize: 17,
     fontWeight: FontWeight.w500,

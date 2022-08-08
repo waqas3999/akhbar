@@ -28,7 +28,7 @@ class _SignInState extends State<SignIn> {
               Navigator.push(context, MaterialPageRoute(builder: (_)=>Landing()));
             },
             child: Icon(Icons.close,size: 40,color: Colors.black,)),
-            title:    Image.asset("images/akhbar.jpg",scale: 2.5,),
+            title:    Image.asset("images/login.PNG",scale: 2.5,),
             centerTitle: true,
             shadowColor: app_Whitecolor,
             toolbarHeight: 70,
@@ -70,20 +70,24 @@ class _SignInState extends State<SignIn> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 175,
-                    height: 2,
-                    color: app_Greycolor,
+                  Expanded(
+                    child: Container(
+                      width: 175,
+                      height: 1,
+                      color: app_Greycolor),
                   ),
                   SizedBox(width: 2,),
                   Text("أو",style: or,),
                   SizedBox(width: 2,),
-                  Container(
-                    width: 175,
-                    height: 2,
-                    color: app_Grey_textcolor,
+                  Expanded(
+                    child: Container(
+                      width: 175,
+                      height: 1,
+                      color: app_Grey_textcolor,
+                    ),
                   ),
                   ],),
+              
               Signin_Btn(label: "تسجيل الدخول بالبريد",textColor:0xFF000000, imcon:"images/email.png",iconcolor: 0xFFFF7F50,  onPress: (){Navigator.pop(context);}),
               Signin_Btn(label: "بريد الفيسبوك", textColor: 0xFF000000, imcon:"images/facebook.png",/*iconcolor: 0xFFFF7F50, */ onPress: (){
                 Navigator.pop(context);
