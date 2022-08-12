@@ -20,7 +20,7 @@ class TextField_SignIn extends StatelessWidget {
             hintMaxLines: 2,
             label:Align(
                 alignment: Alignment.centerRight,
-                child: Text('تسجيل داخل')),
+                child: Text(title,)),
             labelStyle:textfield_style,
             hintText: title,
             hintStyle:  TextStyle(fontFamily: "Poppins",color: Colors.black,fontSize: 22,fontWeight: FontWeight.w500),

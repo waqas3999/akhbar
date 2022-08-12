@@ -24,7 +24,7 @@ class MenuScreen extends StatelessWidget {
             },
             child: Padding(
               padding: EdgeInsets.all(8.0),
-              child: Image.asset("images/uaccount.png",color: app_Whitecolor),
+              child: Image.asset("images/uaccount.png",color: app_Whitecolor,),
             )),
         leadingWidth: 35,
 

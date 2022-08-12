@@ -39,14 +39,15 @@ class _SignInState extends State<SignIn> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text("تسجيل داخل",style:login),
+              Text("تسجيل الدخول",style:login),
               SizedBox(height: 10,),
               CombineTextField(),
               SizedBox(height: 10,),
               Row(
                  mainAxisAlignment: MainAxisAlignment.end,
                  children: [
-                   Text("تذكرنى",style: login,),
+                   Text("اسم المستخدم أو رقم الهاتف",style: login,),
+                   SizedBox(width: 5,),
                    SizedBox(
                      width: 20.0,
                      height: 20.0,
@@ -62,7 +63,7 @@ class _SignInState extends State<SignIn> {
                  ],
                ),
               SizedBox(height: 10,),
-              AppButton(label:"تسجيل الداخل" ,
+              AppButton(label:"تسجيل الدخول" ,
                   textColor:0xffF1F1F1, buttoncolor:0xFF0000FF, onPress: (){
                     Navigator.of(context).push(MaterialPageRoute(builder: (_)=> Landing()));
                   }),
@@ -88,11 +89,11 @@ class _SignInState extends State<SignIn> {
                   ),
                   ],),
               
-              Signin_Btn(label: "تسجيل الدخول بالبريد",textColor:0xFF000000, imcon:"images/email.png",iconcolor: 0xFFFF7F50,  onPress: (){Navigator.pop(context);}),
-              Signin_Btn(label: "بريد الفيسبوك", textColor: 0xFF000000, imcon:"images/facebook.png",/*iconcolor: 0xFFFF7F50, */ onPress: (){
+              Signin_Btn(label: "تواصل مع البريد الإلكتروني",textColor:0xFF000000, imcon:"images/email.png",iconcolor: 0xFFFF7F50,  onPress: (){Navigator.pop(context);}),
+              Signin_Btn(label: "تواصل مع الفيسبوك", textColor: 0xFF000000, imcon:"images/facebook.png",/*iconcolor: 0xFFFF7F50, */ onPress: (){
                 Navigator.pop(context);
               }),
-              Signin_Btn(label: "Google", textColor: 0xFF000000, imcon: "images/google.png",/*iconcolor: 0xFF000000,*/ onPress: (){
+              Signin_Btn(label: "تسجيل الدخول", textColor: 0xFF000000, imcon: "images/google.png",/*iconcolor: 0xFF000000,*/ onPress: (){
                 Navigator.pop(context);
               }),
               GestureDetector(
@@ -105,7 +106,7 @@ class _SignInState extends State<SignIn> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children:  [
                       Text("اشتراك",style: share,),
-                      Text("?هل لديك حساب",style:account ),
+                      Text("?ليس لديك حساب",style:account ),
 
                     ],
                   ),

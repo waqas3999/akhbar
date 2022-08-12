@@ -20,12 +20,12 @@ class CombineTextField extends StatelessWidget {
       ),
       child: Column(
         children: [
-          TextField_SignIn(title: "Enter your mail", textColor:0xFF000000),
+          TextField_SignIn(title: "اسم المستخدم أو رقم الهاتف", textColor:0xFF000000),
           Divider(
             thickness: 1,
             color: app_Grey_textcolor,
           ),
-          TextField_SignIn(title: "Enter your paswword", textColor:0xFF000000)],
+          TextField_SignIn(title: "كلمة المرور", textColor:0xFF000000)],
       ),
     );
   }

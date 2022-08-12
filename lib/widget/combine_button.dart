@@ -1,3 +1,4 @@
+import 'package:akhbar/model/akhbar.dart';
 import 'package:akhbar/utils/utils.dart';
 import 'package:akhbar/widget/btn_menu.dart';
 import 'package:akhbar/widget/listfield.dart';
@@ -32,7 +33,7 @@ class Combine_Buttton extends StatelessWidget {
           ),
             //color: app_redcolor,
             child:    Button_Menu(label: "أخبار", onPress:(){
-              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>HomeField(label: 'الرئيسية')));
+              Navigator.of(context).push<Akhbar>(MaterialPageRoute(builder: (_)=>HomeField(label: 'الرئيسية')));
             }, buttoncolor:0xFFD62B47, textColor: 0xFFFFFFFF,imcon: "images/24c.PNG",/*iconcolor: 0xFFD62B47,*/)),
       )
           ]),

@@ -20,10 +20,13 @@ class SideMenuList extends StatelessWidget {
           return ListTile(
               contentPadding: EdgeInsets.only(left: 0.0, right: 0.0),
               title: Text("${Akhbar.akhbar[index]}", style:txtfield_menu,
-                  textAlign: TextAlign.end),
+                  textAlign: TextAlign.end,
+
+              ),
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (_)=>Landing()));
               }
+
           );
         },
       ),

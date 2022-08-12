@@ -20,6 +20,12 @@ Color twitter_color=Color(0xFF4AA0EC);
 Color headline2=Color(0xFF777777);
 Color tab_textcolor=Color(0xFF0A0A0A);
 Color tab_unselectedcolor=Color(0xFFA7A7A7);
+TextStyle red_text=GoogleFonts.poppins(
+    fontSize: 19,
+    fontWeight: FontWeight.w600,
+    color: app_redcolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 63.5*(-0.5 / 100));
 TextStyle heading1=GoogleFonts.poppins(
     fontSize: 17,
     fontWeight: FontWeight.w500,
@@ -93,6 +99,33 @@ TextStyle listtile_text=GoogleFonts.poppins(
     color: app_Whitecolor,
     fontStyle: FontStyle.normal,
     letterSpacing: 63.5*(-0.5 / 100));
+
+TextStyle home_heading1=GoogleFonts.poppins(
+fontSize: 30,
+fontWeight: FontWeight.w600,
+color: app_Blackcolor,
+fontStyle: FontStyle.normal,
+letterSpacing: 63.5*(-0.5 / 100));
+
+TextStyle home_heading2=GoogleFonts.poppins(
+    fontSize: 22,
+    fontWeight: FontWeight.w300,
+    color: app_Blackcolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 63.5*(-0.5 / 100));
+TextStyle twitter_text=GoogleFonts.poppins(
+    fontSize: 15,
+    fontWeight: FontWeight.w200,
+    color: app_Whitecolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 63.5*(-0.5 / 100));
+TextStyle message_text=GoogleFonts.poppins(
+    fontSize: 18,
+    fontWeight: FontWeight.w200,
+    color: app_menu_textcolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 63.5*(-0.5 / 100));
+
 ///Hello,
 /*
 TextStyle heading2=GoogleFonts.poppins(
