@@ -29,7 +29,7 @@ class Newslist extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(new_images.toString()),
-                    fit: BoxFit.contain
+                    fit: BoxFit.contain,
                 ),
               ),
             ),

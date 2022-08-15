@@ -2,16 +2,10 @@ import 'package:akhbar/model/akhbar.dart';
 import 'package:akhbar/screen/landing.dart';
 import 'package:akhbar/utils/utils.dart';
 import 'package:flutter/material.dart';
-class HomeField extends StatefulWidget {
+class HomeField extends StatelessWidget {
   final String label;
 
-  HomeField({Key? key, required this.label}) : super(key: key);
-
-  @override
-  State<HomeField> createState() => _HomeFieldState();
-}
-
-class _HomeFieldState extends State<HomeField> {
+  HomeField( {Key? key, required this.label}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,11 +13,11 @@ class _HomeFieldState extends State<HomeField> {
         color: app_menuscreen_color,),
       child: GestureDetector(
         onTap: (){
-          if(Akhbar.akhbar.contains(widget.label))
+          if(Akhbar.akhbar.contains(label))
           {
-            Akhbar.selecteditem=widget.label;
+            Akhbar.selecteditem=label;
           }
-          Akhbar.selecteditem=widget.label;
+          Akhbar.selecteditem=label;
           Navigator.pop(context);
           Navigator.of(context)
               .push(
@@ -32,7 +26,7 @@ class _HomeFieldState extends State<HomeField> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Text(widget.label,style: listtile_text),
+            Text(label,style: listtile_text),
             Column(
               children: [
                 Divider(
@@ -47,4 +41,5 @@ class _HomeFieldState extends State<HomeField> {
       ),
     );
   }
+
 }

@@ -15,6 +15,7 @@ class MenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: app_menuscreen_color,
       appBar:AppBar(
         backgroundColor: app_menuscreen_color,
@@ -54,9 +55,7 @@ class MenuScreen extends StatelessWidget {
          SizedBox(height: 20,),
          Combine_Buttton(),
     SizedBox(height: 10,),
-    HomeField(label: 'الرئيسية',),
             SideMenuList(),
-            //SizedBox(height: 20,),
             Container(
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width,

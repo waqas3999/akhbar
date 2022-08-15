@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 class Button_Menu extends StatelessWidget {
   final String label;
   final int textColor;
-  final GestureTapCallback onPress;
   String? imcon;
   IconData? iconData;
   int? iconcolor;
   int? buttoncolor;
-  Button_Menu({Key? key, required this.label,required this.textColor, required this.onPress, this.imcon,this.buttoncolor,this.iconcolor}) : super(key: key);
+  Button_Menu({Key? key, required this.label,required this.textColor, this.imcon,this.buttoncolor,this.iconcolor}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     double heightVariable = MediaQuery.of(context).size.height;
@@ -24,25 +23,22 @@ class Button_Menu extends StatelessWidget {
         //  color:  buttoncolor == null ? null : Color(buttoncolor!.toInt()),
           borderRadius: BorderRadius.circular(5)
       ),
-      child: GestureDetector(
-          onTap: onPress,
-          child: Align(
+      child: Align(
         //    alignment: Alignment.center,
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:[
-                  SizedBox(width:30,
-                    height:30, child:Image(image: AssetImage(imcon?.toString() ?? ""),
-                      color: iconcolor == null ? null : Color(iconcolor!.toInt(),),),),
-                  SizedBox(width: 5,),
-                  Text(label,style:TextStyle(
-                    color: Color(textColor),
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: "Poppins",
-                  )),
-                ]),
-          )
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:[
+              SizedBox(width:30,
+                height:30, child:Image(image: AssetImage(imcon?.toString() ?? ""),
+                  color: iconcolor == null ? null : Color(iconcolor!.toInt(),),),),
+              SizedBox(width: 5,),
+              Text(label,style:TextStyle(
+                color: Color(textColor),
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+                fontFamily: "Poppins",
+              )),
+            ]),
       ),
     );
   }

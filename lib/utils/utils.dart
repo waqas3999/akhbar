@@ -20,6 +20,7 @@ Color twitter_color=Color(0xFF4AA0EC);
 Color headline2=Color(0xFF777777);
 Color tab_textcolor=Color(0xFF0A0A0A);
 Color tab_unselectedcolor=Color(0xFFA7A7A7);
+Color botttombar_color=Color(0xFFF4F4F4);
 TextStyle red_text=GoogleFonts.poppins(
     fontSize: 19,
     fontWeight: FontWeight.w600,
@@ -85,6 +86,12 @@ TextStyle heading8=GoogleFonts.poppins(
     fontStyle: FontStyle.normal,
     letterSpacing: 63.5*(-0.5 / 100)
 );
+TextStyle matchlist_text=GoogleFonts.poppins(
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+    color: app_Blackcolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 63.5*(-0.5 / 100));
 
 TextStyle txtfield_menu=GoogleFonts.poppins(
 fontSize: 17,
@@ -106,6 +113,19 @@ fontWeight: FontWeight.w600,
 color: app_Blackcolor,
 fontStyle: FontStyle.normal,
 letterSpacing: 63.5*(-0.5 / 100));
+
+TextStyle goal_blue_style=GoogleFonts.poppins(
+    fontSize: 30,
+    fontWeight: FontWeight.w600,
+    color: app_Bluecolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 63.5*(-0.5 / 100));
+TextStyle goal_red_style=GoogleFonts.poppins(
+    fontSize: 30,
+    fontWeight: FontWeight.w600,
+    color: app_redcolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 63.5*(-0.5 / 100));
 
 TextStyle home_heading2=GoogleFonts.poppins(
     fontSize: 22,

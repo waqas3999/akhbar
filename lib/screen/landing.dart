@@ -1,18 +1,19 @@
+import 'dart:async';
+
 import 'package:akhbar/model/akhbar.dart';
 import 'package:akhbar/screen/menu_screen.dart';
 import 'package:akhbar/screen/searching.dart';
 import 'package:akhbar/screen/sign_in.dart';
-import 'package:akhbar/screen/splash.dart';
 import 'package:akhbar/utils/utils.dart';
-import 'package:akhbar/widget/listfield.dart';
+import 'package:akhbar/widget/article_list.dart';
+import 'package:akhbar/widget/editors_picks.dart';
+import 'package:akhbar/widget/footballmatch_list.dart';
 import 'package:akhbar/widget/news_listarticle.dart';
+import 'package:akhbar/widget/vedio_list.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_image_slider/carousel.dart';
-
+import 'package:ticker_text/ticker_text.dart';
 class Landing extends StatefulWidget {
-  final List<String> entries = <String>['A', 'B', 'C'];
-  final List<int> colorCodes = <int>[600, 500, 100];
   String? imageicon;
   int? imageiconcolor;
 
@@ -24,8 +25,22 @@ class Landing extends StatefulWidget {
 
 class _LandingState extends State<Landing> {
   final children = <Widget>[];
-
+  late final TickerTextController _tickerTextController;
   @override
+  void initState() {
+    _tickerTextController = TickerTextController();
+
+    // start scrolling after 10 seconds
+    Timer(
+      const Duration(seconds: 10),
+          () {
+        _tickerTextController.startScroll();
+        // print(_tickerTextController.started);
+      },
+    );
+
+    super.initState();
+  }
   Widget build(BuildContext context) {
     return MaterialApp(home: DefaultTabController(
       length: Akhbar.akhbar.length,
@@ -68,10 +83,10 @@ class _LandingState extends State<Landing> {
                 decoration: BoxDecoration(
 
                     border: Border(
-                      top: BorderSide(width: 1, color: app_menu_textcolor),
-                      left: BorderSide(width: 1, color: app_menu_textcolor),
-                      right: BorderSide(width: 1, color: app_menu_textcolor),
-                      bottom: BorderSide(width: 1, color: app_menu_textcolor),
+                      top: BorderSide(width: 0.5, color: app_menu_textcolor),
+                      left: BorderSide(width: 0.5, color: app_menu_textcolor),
+                      right: BorderSide(width: 0.5, color: app_menu_textcolor),
+                      bottom: BorderSide(width: 0.5, color: app_menu_textcolor),
 
                     )
                 ),
@@ -135,11 +150,28 @@ class _LandingState extends State<Landing> {
                       decoration: BoxDecoration(
                           color: app_redcolor,
                           borderRadius: BorderRadius.circular(10)
+                      )// constrain the parent width so the child overflows and scrolling takes effect
+                      ,child: TickerText(
+                        // default values
+                        controller: _tickerTextController, // this is optional
+                        scrollDirection: Axis.horizontal,
+                        speed: 20,
+                        startPauseDuration: const Duration(seconds: 10),
+                        endPauseDuration: const Duration(seconds: 10),
+                        returnDuration: const Duration(milliseconds: 800),
+                        primaryCurve: Curves.linear,
+                        returnCurve: Curves.easeOut,
+                        child: Row(
+                           mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text("رحل قرار وزير الموارد البشرية والتنمية الاجتماعية.المهندس أحمد الراجحي، بالموافقة على تعديل وتحديث دليلي التوطين لمهنتي طب الأسنان",style: home_heading2,textAlign: TextAlign.right,),
+                            Text("خبر عجل",style: txtfield_menu,textAlign: TextAlign.right,),
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(height: 10,),
                     Container(
-
                         child: Column(
                             children: [ Row(
                               //  crossAxisAlignment: CrossAxisAlignment.center,
@@ -177,7 +209,7 @@ class _LandingState extends State<Landing> {
                       Image.asset("images/girl2.PNG",scale: 0.7,fit: BoxFit.contain),],
                   ),
                 )),*/
-                    SizedBox(height: 10,),
+            /*        SizedBox(height: 10,),
                     Text(
                       "صورة المراهق الذي قتل جدته \n ومدرسا و19 تلميذا وجرح 15 في\nتكساسة",
                       style: home_heading1, textAlign: TextAlign.right,),
@@ -239,7 +271,7 @@ class _LandingState extends State<Landing> {
                       ),
                     ),
 
-                    /* Divider(
+                    *//* Divider(
               thickness: 1,
               height: 1,
               color: app_menu_textcolor,
@@ -264,13 +296,15 @@ class _LandingState extends State<Landing> {
                   ),
 
                 ],
-              ),*/
+              ),*//*
                     Divider(
                       thickness: 1,
-                      height: 1,
                       color: app_menu_textcolor,
-                    ),
-                    // SizedBox(height: 5,),
+                    ),*/
+                        SizedBox(height: 10,),
+                        ArticleList(article: "صورة المراهق الذي قتل جدته \n ومدرسا و19 تلميذا وجرح 15 في\nتكساسة", detail:"اموس اللاتيني الأصل دخل إلى المدرسة\nبمسدس، وربما ببندقية، وتصدى له أفراد من\nالشرطة بالرصاص فقتلوه.",),
+
+                        // SizedBox(height: 5,),
                     Newslist(
                         title: "بوتين يصطحب الحقيبة\nالنووية الروسية أثناء مراسم\nعزاء في كنيسة",
                         new_images: "images/tank.PNG"),
@@ -326,7 +360,7 @@ class _LandingState extends State<Landing> {
                               children: [
                                 Container(
                                   height: 20,
-                                  width: 35,
+                                  width: 45,
                                   decoration: BoxDecoration(
                                       color: twitter_color,
                                       borderRadius: BorderRadius.circular(2)
@@ -479,7 +513,7 @@ class _LandingState extends State<Landing> {
                           ),*/
                           Container(
                             height: 1,
-                            width: 270,
+                            width: 290,
                             color: app_menu_textcolor,
                           ),
 
@@ -490,13 +524,141 @@ class _LandingState extends State<Landing> {
 
           options: CarouselOptions(
               viewportFraction: 0.9,
-              aspectRatio: 2.0,
+             //aspectRatio: 2.0,
             //  initialPage: 2,
-              height:MediaQuery.of(context).size.height
+              height:340
           ),
 
-        )
-        ],
+        ),
+                        ArticleList(article: "بدء سريان قرار 7 آلاف ريال حدا\nأدنى لراتب أطباء الأسنان\nوالصيادلة للاحتساب في\n نسب التوطين", detail:"رحل قرار وزير الموارد البشرية والتنمية الاجتماعية.\nالمهندس أحمد الراجحي، بالموافقة على تعديل\nوتحديث دليلي التوطين لمهنتي طب الأسنان"),
+                        ArticleList(detail: "بدء سريان قرار 7 آلاف ريال حداأدنى لراتب أطباء\nالأسنان والصيادلة للاحتساب في نسب التوطينسة"),
+                        ArticleList(detail: "بدء سريان قرار 7 آلاف ريال حداأدنى لراتب أطباء\nالأسنان والصيادلة للاحتساب في نسب التوطينسة"),
+                        ArticleList(detail: "بدء سريان قرار 7 آلاف ريال حداأدنى لراتب أطباء\nالأسنان والصيادلة للاحتساب في نسب التوطينسة"),
+                        ArticleList(detail: "بدء سريان قرار 7 آلاف ريال حداأدنى لراتب أطباء\nالأسنان والصيادلة للاحتساب في نسب التوطينسة"),
+                        SizedBox(height: 30,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text("أنشرة الرابعة", style: home_heading1,),
+                            SizedBox(width: 5,),
+                            Image.asset(
+                                "images/24h.PNG", scale: 0.7, fit: BoxFit.fill),
+                          ],
+                        ),
+                      /*  SizedBox(height: 10,),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 180,
+                          decoration: BoxDecoration(
+                            color: app_Bluecolor,
+                            image: DecorationImage(
+                              image:AssetImage("images/vedio.PNG"),
+                              fit: BoxFit.cover
+                            )
+                          )
+                        ),
+                        SizedBox(height: 10,),
+                          Text("الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة",style: home_heading2,textAlign: TextAlign.right,),
+                      */  VedioList(text: 'الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة', vedio: 'images/vedio.PNG',),
+                        VedioList(text: 'الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة', vedio: 'images/s.jpg',),
+                        VedioList(text: 'الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة', vedio: 'images/p.PNG',),
+                        VedioList(text: 'الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة', vedio: 'images/3.PNG',),
+                        SizedBox(height: 10,),
+                        Divider(
+                          height: 1,
+                          color: app_menu_textcolor,
+                        ),SizedBox(height: 30,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text("عرض الكل", style: txtfield_menu,),
+                            Spacer(),
+                            Text(" نتائج المباريات", style: home_heading2,),
+                          ],
+                        ),
+                        SizedBox(height: 10,),
+
+     /* ListView.builder(
+        itemCount: 5,
+        itemBuilder: (BuildContext context, int index) {
+          return Expanded(
+            child: Container(
+              height: 70,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color:botttombar_color),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("الدنمارك",style:matchlist_text,),
+                  //    SizedBox(width: 5,)                     ,
+                  Text("3",style:goal_blue_style),
+                  Image.asset("images/denmark.png",scale: 12,),
+                  /// SizedBox(width: 5,),
+                  Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:[
+                        Text("18:30",style: txtfield_menu,),
+                        SizedBox(height: 5,),
+                        Text(" IVابريل",style: textfield_style,)
+                      ]),
+                  //  SizedBox(width: 5,),
+                  Image.asset("images/sweden.png",scale: 12,),
+                  //   SizedBox(width: 5,),
+                  Text("1",style:goal_red_style,),
+                  Text("السويد",style:matchlist_text,),
+
+                ],
+              ),
+            ),
+          );
+        },
+
+      ),*/
+            FootballMatchList(team1: "الدنمارك", team2:"السويد", teamscore1: 3, teamscore2: 1, date: "18:30", time: " IVابريل", team_flag1:"images/denmark.png", team_flag2:"images/sweden.png" )
+                  ,SizedBox(height: 20,),
+                           FootballMatchList(team1: "الدنمارك", team2:"السويد", teamscore1: 3, teamscore2: 0, date: "18:30", time: " IVابريل", team_flag1:"images/finland.png", team_flag2:"images/russia.png" ),
+      SizedBox(height: 20,),
+      FootballMatchList(team1: "فرنسا", team2:"المانيا", teamscore1: 0, teamscore2: 1, date: "18:30", time: " IVابريل", team_flag1:"images/france.png", team_flag2:"images/germany.png" ),
+                        SizedBox(height: 20,),
+                        FootballMatchList(team1: "بولاندا", team2:"أسبانيا", teamscore1: 2, teamscore2: 1, date: "18:30", time: " IVابريل", team_flag1:"images/poland.png", team_flag2:"images/spain.png" ),
+                        SizedBox(height: 20,),
+                        FootballMatchList(team1: "انجلترا", team2:"كرواتيا", teamscore1: 1, teamscore2: 1, date: "18:30", time: " IVابريل", team_flag1:"images/england.png", team_flag2:"images/croatia.png" ),
+                        SizedBox(height: 20,),
+                        FootballMatchList(team1: "الدينمارك", team2:"البرتغال", teamscore1: 2, teamscore2: 1, date: "18:30", time: " IVابريل", team_flag1:"images/denmark.png", team_flag2:"images/portugal.png" ),
+                       SizedBox(height: 20,),
+                        Divider(
+        height: 1,
+      color: app_menu_textcolor,
+    ),
+
+                        SizedBox(height: 30,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text("اختيارات المحرر", style: home_heading1),
+                            SizedBox(width: 5,),
+                            Image.asset(
+                                "images/24h.PNG", scale: 0.7, fit: BoxFit.fill),
+                          ],
+                        ),
+                        SizedBox(height: 10,),
+
+                        EditorsPicks(editor_text:'الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة', editor_pic:"images/mobile.PNG"),
+
+                        EditorsPicks(editor_text:'الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة', editor_pic:"images/covid.PNG"),
+
+                        EditorsPicks(editor_text:'الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة', editor_pic:"images/army.PNG"),
+
+                        EditorsPicks(editor_text:'الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة', editor_pic:"images/kaaba.PNG"),
+
+                        SizedBox(height: 20,)
+
+                      ],
+
+
+
       ),
     ),
     )],
@@ -505,16 +667,32 @@ class _LandingState extends State<Landing> {
           bottomNavigationBar: BottomAppBar(
             color:Color(0xFFF4F4F4),
             child: Container(
+
               height: 70,
               child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  IconButton(icon: Icon(Icons.supervised_user_circle,size: 18,color: app_menu_textcolor), onPressed: () {},),
-                  IconButton(icon: Icon(Icons.add_chart_rounded,size: 18,color: app_menu_textcolor), onPressed: () {},),
-                  IconButton(icon: Icon(Icons.search_rounded,size: 18,color: app_menu_textcolor), onPressed: () {
+                  IconButton(icon: SizedBox(
+                      width: 22,
+                      height: 22,
+                      child: SizedBox(
+                          width: 22,
+                          height: 22,
+                          child: Image.asset('images/userhome.png',color: app_menu_textcolor,))),onPressed: () {},),
+                  IconButton(icon: SizedBox(
+                      width:22,
+                      height: 22,
+                      child: Image.asset('images/bookmark.png',color: app_menu_textcolor)) ,onPressed: () {},),
+                  IconButton(icon:SizedBox(
+                      width: 22,
+                      height: 22,
+                      child: Image.asset('images/search.png',color: app_menu_textcolor,)), onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (_)=>Searching()));
                   },),
-                  IconButton(icon: Icon(Icons.home,size: 18,color: app_menu_textcolor,), onPressed: () {
+                  IconButton(icon: SizedBox(
+                      width: 22,
+                      height: 22,
+                      child: Image.asset('images/ghar3.png',color: app_menu_textcolor,)), onPressed: () {
                     Navigator.push(context,MaterialPageRoute(builder: (_)=>Landing()));
                   },),
 
