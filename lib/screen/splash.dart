@@ -1,3 +1,4 @@
+/*
 import 'package:akhbar/screen/landing.dart';
 import 'package:flutter/material.dart';
 
@@ -22,8 +23,10 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
     body: Container(
+*/
 /*      width: MediaQuery.of(context).size.width,
-      height:  MediaQuery.of(context).size.height,*/
+      height:  MediaQuery.of(context).size.height,*//*
+
     width: double.infinity,
       height: double.infinity,
       decoration: BoxDecoration(
@@ -40,3 +43,4 @@ class _SplashState extends State<Splash> {
 
   }
 }
+*/

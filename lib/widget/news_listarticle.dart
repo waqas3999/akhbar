@@ -1,4 +1,3 @@
-import 'package:akhbar/model/akhbar.dart';
 import 'package:akhbar/screen/landing.dart';
 import 'package:akhbar/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -9,27 +8,30 @@ class Newslist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-      border: Border(
-        bottom: BorderSide(width: 1,color: app_menu_textcolor))
-      ),
-      child: GestureDetector(
-        onTap: (){
-          Navigator.pop(context);
-          Navigator.of(context).push(MaterialPageRoute(builder: (_) =>  Landing()));
-        },
+    return GestureDetector(
+      onTap: (){
+        Navigator.pop(context);
+        Navigator.of(context).push(MaterialPageRoute(builder: (_) =>  const Landing()));
+      },
+      child: Container(
+        padding: const EdgeInsets.only(bottom: 10,top: 10),
+        decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(width: 0.5,color: app_menu_textcolor))
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [Text(title,style:heading1,textAlign: TextAlign.right,),
-            SizedBox(width: 15,),
+          children: [Text(title,style:heading1,textAlign: TextAlign.right),
+            const SizedBox(width: 15,),
             Container(
-              width: 100,
-              height: 100,
+              width: 80,
+              height: 60,
               decoration: BoxDecoration(
+                 color: app_Bluecolor,
+                borderRadius: BorderRadius.circular(5),
                 image: DecorationImage(
                     image: AssetImage(new_images.toString()),
-                    fit: BoxFit.contain,
+                    fit: BoxFit.fill,
                 ),
               ),
             ),

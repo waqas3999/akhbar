@@ -25,29 +25,29 @@ class _SignInState extends State<SignIn> {
         backgroundColor: app_Whitecolor,
         leading: GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>Landing()));
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>const Landing()));
             },
-            child: Icon(Icons.close,size: 40,color: Colors.black,)),
+            child: const Icon(Icons.close,size: 40,color: Colors.black,)),
             title:    Image.asset("images/login.PNG",scale: 2.5,),
             centerTitle: true,
             shadowColor: app_Whitecolor,
             toolbarHeight: 70,
              elevation: 0.0),
       body: Padding(
-        padding:   EdgeInsets.only(left: 10,right: 10,top: 20),
+        padding:   const EdgeInsets.only(left: 10,right: 10,top: 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text("تسجيل الدخول",style:login),
-              SizedBox(height: 10,),
-              CombineTextField(),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
+              const CombineTextField(),
+              const SizedBox(height: 10,),
               Row(
                  mainAxisAlignment: MainAxisAlignment.end,
                  children: [
                    Text("اسم المستخدم أو رقم الهاتف",style: login,),
-                   SizedBox(width: 5,),
+                   const SizedBox(width: 5,),
                    SizedBox(
                      width: 20.0,
                      height: 20.0,
@@ -62,12 +62,12 @@ class _SignInState extends State<SignIn> {
                    ),
                  ],
                ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               AppButton(label:"تسجيل الدخول" ,
                   textColor:0xffF1F1F1, buttoncolor:0xFF0000FF, onPress: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_)=> Landing()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const Landing()));
                   }),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -77,9 +77,9 @@ class _SignInState extends State<SignIn> {
                       height: 1,
                       color: app_Greycolor),
                   ),
-                  SizedBox(width: 2,),
+                  const SizedBox(width: 2,),
                   Text("أو",style: or,),
-                  SizedBox(width: 2,),
+                  const SizedBox(width: 2,),
                   Expanded(
                     child: Container(
                       width: 175,
@@ -98,10 +98,10 @@ class _SignInState extends State<SignIn> {
               }),
               GestureDetector(
                 onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => Landing()));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Landing()));
                 },
                 child: Padding(
-                  padding:  EdgeInsets.only(top: 10),
+                  padding:  const EdgeInsets.only(top: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children:  [

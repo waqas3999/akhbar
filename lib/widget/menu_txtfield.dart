@@ -10,7 +10,7 @@ class Menu_textField extends StatelessWidget {
       textAlign: TextAlign.right,
       style: txtfield_menu,
       decoration: InputDecoration(
-        suffixIconConstraints: BoxConstraints(
+        suffixIconConstraints: const BoxConstraints(
           minHeight: 22,
           minWidth: 22,
         ),
@@ -24,7 +24,7 @@ isDense: true,
         hintText: "بحث عن",
         hintStyle: txtfield_menu,
         suffixIcon: Padding(
-          padding:  EdgeInsets.only(left: 5),
+          padding:  const EdgeInsets.only(left: 5),
           child: Image.asset("images/searching.png" ,width: 20,height: 20,color: app_menu_textcolor,),
         ),
       ),

@@ -24,9 +24,9 @@ class EditorsPicks extends StatelessWidget {
                 )
             ),
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           Text(editor_text.toString(),style: home_heading2,textAlign: TextAlign.right,),
-          SizedBox(height: 10,)
+          const SizedBox(height: 10,)
         ]);
   }
 }

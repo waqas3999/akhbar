@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class HomeField extends StatelessWidget {
   final String label;
 
-  HomeField( {Key? key, required this.label}) : super(key: key);
+  const HomeField( {Key? key, required this.label}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +21,7 @@ class HomeField extends StatelessWidget {
           Navigator.pop(context);
           Navigator.of(context)
               .push(
-              MaterialPageRoute(builder: (_) =>  Landing()));
+              MaterialPageRoute(builder: (_) =>   Landing()));
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -31,7 +31,7 @@ class HomeField extends StatelessWidget {
               children: [
                 Divider(
                   thickness: 1,
-                  height: 1,
+                  height: 0.6,
                   color: app_menu_textcolor,
                 ),
               ],

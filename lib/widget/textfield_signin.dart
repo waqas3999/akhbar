@@ -7,9 +7,10 @@ class TextField_SignIn extends StatelessWidget {
   TextField_SignIn({Key? key,required this.title, required this.textColor}) : super(key: key);
   @override
   final TextEditingController txtxtrl=TextEditingController();
+  @override
   Widget build(BuildContext context) {
     return  Padding(
-      padding:  EdgeInsets.all(5),
+      padding:  const EdgeInsets.all(5),
       child: TextFormField(
           textAlign: TextAlign.right,
           controller: txtxtrl,
@@ -23,7 +24,7 @@ class TextField_SignIn extends StatelessWidget {
                 child: Text(title,)),
             labelStyle:textfield_style,
             hintText: title,
-            hintStyle:  TextStyle(fontFamily: "Poppins",color: Colors.black,fontSize: 22,fontWeight: FontWeight.w500),
+            hintStyle:  const TextStyle(fontFamily: "Poppins",color: Colors.black,fontSize: 22,fontWeight: FontWeight.w500),
           )
 
       ),
