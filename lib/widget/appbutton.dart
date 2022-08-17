@@ -1,4 +1,3 @@
-import 'package:akhbar/utils/utils.dart';
 import 'package:flutter/material.dart';
 class AppButton extends StatelessWidget {
   final String label;
@@ -6,7 +5,7 @@ class AppButton extends StatelessWidget {
   final int buttoncolor;
   final int textColor;
 
-  AppButton({Key? key, required this.label,required this.onPress, required this.buttoncolor, required this.textColor,}) : super(key: key);
+  const AppButton({Key? key, required this.label,required this.onPress, required this.buttoncolor, required this.textColor,}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(

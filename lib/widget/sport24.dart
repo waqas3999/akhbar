@@ -22,13 +22,13 @@ class Sport24 extends StatelessWidget {
           return Material(
             color: app_menuscreen_color,
             child: ListTile(
-                contentPadding: EdgeInsets.only(left: 0.0, right: 0.0),
-                title: Text("${Akhbar.sport[index]}", style:txtfield_menu,
+                contentPadding: const EdgeInsets.only(left: 0.0, right: 0.0),
+                title: Text(Akhbar.sport[index], style:txtfield_menu,
                   textAlign: TextAlign.end,
 
                 ),
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (_)=>Landing()));
+                  Navigator.push(context, MaterialPageRoute(builder: (_)=>const Landing()));
                 }
 
             ),

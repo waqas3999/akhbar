@@ -26,7 +26,7 @@ final String team_flag1,team_flag2;
               mainAxisAlignment: MainAxisAlignment.center,
               children:[
                 Text(time,style: txtfield_menu,),
-                SizedBox(height: 5,),
+                const SizedBox(height: 5,),
                 Text(date,style: textfield_style,)
           ]),
           //  SizedBox(width: 5,),
