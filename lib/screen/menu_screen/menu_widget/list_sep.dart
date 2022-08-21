@@ -1,5 +1,5 @@
 import 'package:akhbar/model/akhbar.dart';
-import 'package:akhbar/screen/landing.dart';
+import 'package:akhbar/screen/landing/landing.dart';
 import 'package:akhbar/utils/utils.dart';
 import 'package:flutter/material.dart';
 class List_Seperator extends StatefulWidget {

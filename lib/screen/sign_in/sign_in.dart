@@ -1,9 +1,10 @@
 
-import 'package:akhbar/screen/landing.dart';
+import 'package:akhbar/screen/landing/landing.dart';
 import 'package:akhbar/utils/utils.dart';
-import 'package:akhbar/widget/appbutton.dart';
-import 'package:akhbar/widget/combine_textfield.dart';
-import 'package:akhbar/widget/signin_btn.dart';
+import 'package:akhbar/screen/sign_in/signin_widget/appbutton.dart';
+import 'package:akhbar/screen/sign_in/signin_widget/combine_textfield.dart';
+import 'package:akhbar/screen/sign_in/signin_widget/signin_btn.dart';
+import 'package:akhbar/widget/custom_appbar.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -21,7 +22,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: app_Whitecolor,
-      appBar:AppBar(
+      appBar:/*AppBar(
         backgroundColor: app_Whitecolor,
         leading: GestureDetector(
             onTap: (){
@@ -32,7 +33,8 @@ class _SignInState extends State<SignIn> {
             centerTitle: true,
             shadowColor: app_Whitecolor,
             toolbarHeight: 70,
-             elevation: 0.0),
+             elevation: 0.0)*/CustomAppBar(leading_icon: "images/close.png",onleadingClick:(){ Navigator.push(
+    context, MaterialPageRoute(builder: (_) => Landing()));},center_icon: "images/login.PNG",ontrailingClick: null, bg_color: 0xFFFFFFFF, leading_iconcolor: 0xFF000000,),
       body: Padding(
         padding:   const EdgeInsets.only(left: 10,right: 10,top: 20),
         child: SingleChildScrollView(

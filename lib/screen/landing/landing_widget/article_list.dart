@@ -1,6 +1,6 @@
 
 import 'package:akhbar/utils/utils.dart';
-import 'package:akhbar/widget/article_bottom_section.dart';
+import 'package:akhbar/screen/landing/landing_widget/article_bottom_section.dart';
 import 'package:flutter/material.dart';
 
 class ArticleList extends StatelessWidget {
@@ -18,7 +18,7 @@ class ArticleList extends StatelessWidget {
     Text(
     detail?.toString() ?? "",
     style: home_heading2, textAlign: TextAlign.right,),
-    const SizedBox(height: 5,),
+     SizedBox(height: 5,),
    ArtcleBottom_Section()
     ]));
   }

@@ -1,53 +1,56 @@
-import 'package:akhbar/screen/landing.dart';
-import 'package:akhbar/screen/sign_in.dart';
 import 'package:akhbar/utils/utils.dart';
 import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   @override
-  Size get preferredSize => const Size.fromHeight(60);
+  Size get preferredSize => Size.fromHeight(50);
+ GestureTapCallback? onleadingClick;
   String? leading_icon;
   String? center_icon;
   String? trailing_icon;
+  GestureTapCallback? ontrailingClick;
+ int? traling_iconcolor;
+  final int bg_color;
+ final int leading_iconcolor;
 
-  CustomAppBar(
-      {Key? key, this.leading_icon, this.center_icon, this.trailing_icon})
-      : super(key: key);
-
+  CustomAppBar({this.leading_icon, this.center_icon, this.trailing_icon,this.onleadingClick,this.ontrailingClick, required this.bg_color,required this.leading_iconcolor,this.traling_iconcolor})  ;
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: app_menuscreen_color,
-      leading: GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (_) => SignIn()));
-          },
+      backgroundColor:Color(bg_color),
+      leading: /*GestureDetector(
+          onTap: onleadingClick,
           child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Image.asset(
-              leading_icon?.toString() ?? "", color: app_Whitecolor,),
-          )),
-      leadingWidth: 35,
+            padding: EdgeInsets.only(left: 12),
+            child: SizedBox(
+                height: 5,
+                child: Image.asset(leading_icon?.toString() ?? "",color:leading_iconcolor==null ? null:Color(leading_iconcolor!.toInt()),)),
+          ))*/
+      IconButton(onPressed: onleadingClick, icon:ImageIcon(AssetImage(leading_icon?.toString()?? ""),size: 18,color:Color(leading_iconcolor) ,),),
 
-      title: Image.asset(center_icon?.toString() ?? "", scale: 3,),
+
+      title: SizedBox(
+        width: MediaQuery.of(context).size.width,
+          height: 50,
+          child: Image.asset(center_icon?.toString() ?? "",scale: 1,)),
+     // IconButton(onPressed: (){}, icon:ImageIcon(AssetImage(center_icon?.toString()?? "")),),
+
       centerTitle: true,
       shadowColor: app_Whitecolor,
-      toolbarHeight: 64,
+      toolbarHeight: 65,
       elevation: 0.0,
       actions: <Widget>[
-        GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => Landing()));
-            },
+       /* GestureDetector(
+            onTap: ontrailingClick,
             child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Image.asset(trailing_icon?.toString() ?? "", scale: 20,color: app_Whitecolor,),
-            )),
-
+              padding: EdgeInsets.only(right: 12),
+              child: SizedBox(
+                  width: 22,
+                  height: 22,
+                  child: trailing_icon == null  ? Container() :
+                  Image.asset(trailing_icon?.toString() ?? "",
+                    color:(trailing_icon==null) ? null:Color(traling_iconcolor!.toInt()),),)
+            ))*/      IconButton(onPressed: ontrailingClick,icon: trailing_icon == null  ? Container() : ImageIcon(AssetImage(trailing_icon?.toString()?? ""),size: 18,color:(traling_iconcolor==null) ? null:Color(traling_iconcolor!.toInt()),),),
       ],
-
     );
   }
-
 }

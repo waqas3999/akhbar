@@ -29,12 +29,25 @@ TextStyle red_text=GoogleFonts.poppins(
     letterSpacing: 63.5*(-0.5 / 100));
 TextStyle heading1=GoogleFonts.poppins(
     fontSize: 17,
+    fontWeight: FontWeight.w600,
+    color: app_Blackcolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 20*( 3 / 100));
+    TextStyle bottom_textStyle=GoogleFonts.poppins(
+    fontSize: 17,
     fontWeight: FontWeight.w500,
     color: app_Blackcolor,
     fontStyle: FontStyle.normal,
     letterSpacing: 20*( 3 / 100)
 );
-
+TextStyle selected_tabStyle=GoogleFonts.poppins(
+    fontSize: 17,
+    fontWeight: FontWeight.w500,
+    color: app_Bluecolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 20*( 3 / 100),
+    decorationStyle:TextDecorationStyle.wavy
+);
 TextStyle login=GoogleFonts.poppins(
     fontSize: 22,
     fontWeight: FontWeight.w700,
@@ -140,7 +153,7 @@ TextStyle twitter_text=GoogleFonts.poppins(
     fontStyle: FontStyle.normal,
     letterSpacing: 63.5*(-0.5 / 100));
 TextStyle message_text=GoogleFonts.poppins(
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: FontWeight.w200,
     color: app_menu_textcolor,
     fontStyle: FontStyle.normal,

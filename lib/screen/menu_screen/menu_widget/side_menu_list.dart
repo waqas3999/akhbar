@@ -1,5 +1,5 @@
 import 'package:akhbar/model/akhbar.dart';
-import 'package:akhbar/screen/landing.dart';
+import 'package:akhbar/screen/landing/landing.dart';
 import 'package:akhbar/utils/utils.dart';
 import 'package:flutter/material.dart';
 class SideMenuList extends StatelessWidget {
@@ -20,7 +20,6 @@ class SideMenuList extends StatelessWidget {
             color: app_menuscreen_color,
             child: ListTile(
               dense: true,
-
                 contentPadding: const EdgeInsets.only(left: 0.0, right: 0.0),
                 title: Text(Akhbar.akhbar[index], style:txtfield_menu,
                     textAlign: TextAlign.right

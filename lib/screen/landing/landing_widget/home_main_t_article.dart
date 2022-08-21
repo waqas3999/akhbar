@@ -1,6 +1,6 @@
-import 'package:akhbar/screen/landing.dart';
+import 'package:akhbar/screen/landing/landing.dart';
 import 'package:akhbar/utils/utils.dart';
-import 'package:akhbar/widget/article_list.dart';
+import 'package:akhbar/screen/landing/landing_widget/article_list.dart';
 import 'package:flutter/material.dart';
 class TotalNews_Article extends StatelessWidget {
   const TotalNews_Article({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class TotalNews_Article extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10,),
-        ArticleList(article: "صورة المراهق الذي قتل جدته \n ومدرسا و19 تلميذا وجرح 15 في\nتكساسة", detail:"اموس اللاتيني الأصل دخل إلى المدرسة\nبمسدس، وربما ببندقية، وتصدى له أفراد من\nالشرطة بالرصاص فقتلوه.",),
+        ArticleList(article: "صورة المراهق الذي قتل جدته ومدرسا و19 تلميذا وجرح 15 فتكساسة", detail:"اموس اللاتيني الأصل دخل إلى المدرسة\nبمسدس، وربما ببندقية، وتصدى له أفراد من\nالشرطة بالرصاص فقتلوه.",),
 
       ],
     );

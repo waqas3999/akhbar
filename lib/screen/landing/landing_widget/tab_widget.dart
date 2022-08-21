@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:akhbar/utils/utils.dart';
 import 'package:flutter/material.dart';
 class TabWidget extends StatelessWidget {
@@ -9,11 +11,10 @@ class TabWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Tab(
       child: Container(
+        alignment: Alignment.center,
         width: 100,
         height: 20,
-        child: Center(
-          child: Text(title),
-        ),
+        child: Text(title),
         decoration: isSeperator
             ? BoxDecoration(
           border: Border(

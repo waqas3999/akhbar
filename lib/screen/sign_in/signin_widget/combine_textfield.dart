@@ -1,5 +1,5 @@
 import 'package:akhbar/utils/utils.dart';
-import 'package:akhbar/widget/textfield_signin.dart';
+import 'package:akhbar/screen/sign_in/signin_widget/textfield_signin.dart';
 import 'package:flutter/material.dart';
 class CombineTextField extends StatelessWidget {
   const CombineTextField({Key? key}) : super(key: key);

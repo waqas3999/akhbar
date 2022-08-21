@@ -1,18 +1,22 @@
 import 'package:akhbar/model/akhbar.dart';
-import 'package:akhbar/screen/landing.dart';
-import 'package:akhbar/screen/sign_in.dart';
+import 'package:akhbar/screen/landing/landing.dart';
+import 'package:akhbar/screen/sign_in/sign_in.dart';
 import 'package:akhbar/utils/utils.dart';
-import 'package:akhbar/widget/combine_button.dart';
+import 'package:akhbar/screen/menu_screen/menu_widget/combine_button.dart';
+import 'package:akhbar/screen/menu_screen/menu_widget/list_sep.dart';
+import 'package:akhbar/screen/menu_screen/menu_widget/menu_txtfield.dart';
+import 'package:akhbar/screen/sign_in/signin_widget/round_button.dart';
 import 'package:akhbar/widget/custom_appbar.dart';
-import 'package:akhbar/widget/list_sep.dart';
-import 'package:akhbar/widget/listfield.dart';
-import 'package:akhbar/widget/menu_txtfield.dart';
-import 'package:akhbar/widget/round_button.dart';
-import 'package:akhbar/widget/side_menu_list.dart';
 import 'package:flutter/material.dart';
+class MenuScreen extends StatefulWidget {
+   MenuScreen({Key? key}) : super(key: key);
 
-class MenuScreen extends StatelessWidget {
-  const MenuScreen({Key? key}) : super(key: key);
+  @override
+  State<MenuScreen> createState() => _MenuScreenState();
+}
+
+class _MenuScreenState extends State<MenuScreen> {
+  int? navigationId;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +35,8 @@ class MenuScreen extends StatelessWidget {
             )),
         leadingWidth: 35,
 
-        title:    Image.asset("images/logo.PNG",scale: 3,),
+        title:Image.asset(
+          navigationId==1 ? "images/logo.PNG":"images/a.png",scale: 3,),
         centerTitle: true,
         shadowColor: app_Whitecolor,
         toolbarHeight: 64,
@@ -48,17 +53,31 @@ class MenuScreen extends StatelessWidget {
 
           ],
 
-      )*/CustomAppBar(leading_icon: "images/uaccount.png",center_icon: "images/logo.PNG",trailing_icon: "images/close.png",),
+      )*/
+      CustomAppBar(leading_icon: "images/uaccount.png",onleadingClick:(){ Navigator.push(
+          context, MaterialPageRoute(builder: (_) => SignIn()));},
+        center_icon:  navigationId==1 ? "images/logo.PNG":"images/login.PNG",trailing_icon: "images/close.png",ontrailingClick:(){
+        Navigator.push(context, MaterialPageRoute(builder: (_) => Landing()));
+        }, traling_iconcolor: 0xFFFFFFFF, bg_color: 0xFF1D253C,leading_iconcolor:0xFFFFFFFF
+        ),
       body:Padding(
         padding:  EdgeInsets.only(left: 10,right: 10),
         child: Column(
           children: [
-            const Menu_textField(),
-         const SizedBox(height: 20,),
-         const Combine_Buttton(),
+             Menu_textField(),
+          SizedBox(height: 20,),
+         Combine_Buttton(onPress: (navigationid ) {
+           setState(() {
+             navigationId = navigationid;
+           }
+           );
+
+         },
+         ),
     const SizedBox(height: 10,),
-          /*  const SideMenuList(),*/
-            List_Seperator(litems: Akhbar.sport),
+        navigationId == 1 ?List_Seperator(litems: Akhbar.sport,): List_Seperator(litems: Akhbar.akhbar,
+        ),
+
             Container(
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width,
@@ -70,7 +89,6 @@ class MenuScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                children: [
                  Round_Button(onPress: () {  },imcon: "images/ficon.png",iconcolor:0xFF8E929E,),
-                 /*SizedBox(width: 15,),*/
                  Round_Button(onPress: () {  },imcon: "images/instagram.png",iconcolor:0xFF8E929E,),
                  /*SizedBox(width: 15,),*/
                  Round_Button(onPress: () {  },imcon: "images/youtube.png",iconcolor:0xFF8E929E,),

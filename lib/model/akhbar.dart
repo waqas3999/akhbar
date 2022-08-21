@@ -5,4 +5,13 @@ class Akhbar{
   static String? selecteditem;
 
   static List<String> sport=['سبورت 24','تصنيفات الفريق','نادي النصر','نادي الهلال','نادي الاتحاد','النادي الأهلي',' نادي شباب'];
+  static List<String> bottomtab=['الرئيسية','رياضة','دوليات','المزيد'];
+  static  List<String> iconTypes =[
+    'images/home.png',
+    'images/football.png',
+    'images/home.png',
+    'images/more.png',
+     ];
+
 }
+
