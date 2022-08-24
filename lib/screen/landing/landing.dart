@@ -207,10 +207,13 @@ class _LandingState extends State<Landing>  with TickerProviderStateMixin {
                              Text("اسم القسم", style: red_text,
                                textAlign: TextAlign.right,),
                              //SizedBox(height: 5,),
-                             Text(
-                               "السعودية تتحدى الغرب وترفض زيادة\nإنتاج النفط السبب والتداعيات؟",
-                               style: home_heading2,
-                               textAlign: TextAlign.right,),
+                             Container(
+                               width: MediaQuery.of(context).size.width,
+                               child: Text(
+                                 "السعودية تتحدى الغرب وترفض زيادة\nإنتاج النفط السبب والتداعيات؟",
+                                 style: home_heading2,
+                                 textAlign: TextAlign.right,),
+                             ),
                      SizedBox(width: MediaQuery.of(context).size.width,
                        height: 50,
                        child: Column(
@@ -241,8 +244,7 @@ class _LandingState extends State<Landing>  with TickerProviderStateMixin {
                                SizedBox(width: 8, height: 8, child: Image.asset(
                                  "images/clock.png", color: app_menu_textcolor,)),
                                SizedBox(width: 10,),
-                               Image.asset("images/24h.PNG", scale:1.1,),
-
+                               Image.asset("images/24h.PNG", scale:1.1,)
                              ],
                            ),
 
@@ -319,9 +321,9 @@ class _LandingState extends State<Landing>  with TickerProviderStateMixin {
                            const FootballMatchList(team1: "الدينمارك", team2:"البرتغال", teamscore1: 2, teamscore2: 1, date: "18:30", time: " IVابريل", team_flag1:"images/denmark.png", team_flag2:"images/portugal.png" ),
                           const SizedBox(height: 20,),
                            Divider(
-              height: 0.5,
-    color: app_menu_textcolor,
-    ),
+                            height: 0.5,
+                               color: app_menu_textcolor,
+                               ),
 
                            const SizedBox(height: 30,),
                            Row(
@@ -341,7 +343,7 @@ class _LandingState extends State<Landing>  with TickerProviderStateMixin {
 
                            const EditorsPicks(editor_text:'الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة', editor_pic:"images/army.PNG"),
 
-                           const EditorsPicks(editor_text:'الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة', editor_pic:"images/kaaba.PNG"),
+                            EditorsPicks(editor_text:'الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة', editor_pic:"images/kaaba.PNG"),
 
                            const SizedBox(height: 20,)
                          ],

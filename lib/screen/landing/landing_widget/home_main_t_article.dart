@@ -1,4 +1,5 @@
 import 'package:akhbar/screen/landing/landing.dart';
+import 'package:akhbar/screen/searching.dart';
 import 'package:akhbar/utils/utils.dart';
 import 'package:akhbar/screen/landing/landing_widget/article_list.dart';
 import 'package:flutter/material.dart';
@@ -7,14 +8,14 @@ class TotalNews_Article extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: (){
-            Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Landing()));
+    return GestureDetector(
+      onTap: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Searching()));
 
-          },
-          child: Container(
+      },
+      child: Column(
+        children: [
+          Container(
             width: MediaQuery.of(context).size.width,
             height: 200,
             decoration: BoxDecoration(
@@ -27,11 +28,11 @@ class TotalNews_Article extends StatelessWidget {
             ),
 
           ),
-        ),
-        SizedBox(height: 10,),
-        ArticleList(article: "صورة المراهق الذي قتل جدته ومدرسا و19 تلميذا وجرح 15 فتكساسة", detail:"اموس اللاتيني الأصل دخل إلى المدرسة\nبمسدس، وربما ببندقية، وتصدى له أفراد من\nالشرطة بالرصاص فقتلوه.",),
+          SizedBox(height: 10,),
+          ArticleList(article: "صورة المراهق الذي قتل جدته ومدرسا و19 تلميذا وجرح 15 فتكساسة", detail:"اموس اللاتيني الأصل دخل إلى المدرسة\nبمسدس، وربما ببندقية، وتصدى له أفراد من\nالشرطة بالرصاص فقتلوه.",),
 
-      ],
+        ],
+      ),
     );
   }
 }

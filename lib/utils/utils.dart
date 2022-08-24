@@ -21,32 +21,32 @@ Color headline2=const Color(0xFF777777);
 Color tab_textcolor=const Color(0xFF0A0A0A);
 Color tab_unselectedcolor=const Color(0xFFA7A7A7);
 Color botttombar_color=const Color(0xFFF4F4F4);
-TextStyle red_text=GoogleFonts.poppins(
+TextStyle red_text=GoogleFonts.notoSansArabic(
     fontSize: 19,
     fontWeight: FontWeight.w600,
     color: app_redcolor,
     fontStyle: FontStyle.normal,
     letterSpacing: 63.5*(-0.5 / 100));
-TextStyle heading1=GoogleFonts.poppins(
+TextStyle heading1=GoogleFonts.notoSansArabic(
     fontSize: 17,
     fontWeight: FontWeight.w600,
     color: app_Blackcolor,
     fontStyle: FontStyle.normal,
     letterSpacing: 20*( 3 / 100));
-    TextStyle bottom_textStyle=GoogleFonts.poppins(
+    TextStyle bottom_textStyle=GoogleFonts.notoSansArabic(
     fontSize: 17,
     fontWeight: FontWeight.w500,
     color: app_Blackcolor,
     fontStyle: FontStyle.normal,
     letterSpacing: 20*( 3 / 100)
 );
-TextStyle selected_tabStyle=GoogleFonts.poppins(
+TextStyle selected_tabStyle=GoogleFonts.notoSansArabic(
     fontSize: 17,
     fontWeight: FontWeight.w500,
     color: app_Bluecolor,
     fontStyle: FontStyle.normal,
     letterSpacing: 20*( 3 / 100),
-    decorationStyle:TextDecorationStyle.wavy
+    //decorationStyle:TextDecorationStyle.wavy
 );
 TextStyle login=GoogleFonts.poppins(
     fontSize: 22,

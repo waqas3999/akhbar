@@ -13,6 +13,7 @@ class Newslist extends StatelessWidget {
         Navigator.of(context).push(MaterialPageRoute(builder: (_) =>  const Landing()));
       },
       child: Container(
+        width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.only(bottom: 10,top: 10),
         decoration: BoxDecoration(
         border: Border(
@@ -20,7 +21,9 @@ class Newslist extends StatelessWidget {
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
-          children: [Text(title,style:heading1,textAlign: TextAlign.right),
+          children: [Container(
+            alignment: Alignment.center,
+              child: Text(title,style:heading1,textAlign: TextAlign.right)),
             const SizedBox(width: 15,),
             Container(
               width: 80,
