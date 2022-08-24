@@ -1,8 +1,6 @@
 import 'package:akhbar/model/akhbar.dart';
-import 'package:akhbar/screen/landing/landing_widget/bottom_Tabbar.dart';
 import 'package:akhbar/screen/landing/landing_widget/tab_widget.dart';
 import 'package:akhbar/screen/menu_screen/menu_screen.dart';
-import 'package:akhbar/screen/searching.dart';
 import 'package:akhbar/screen/sign_in/sign_in.dart';
 import 'package:akhbar/utils/utils.dart';
 import 'package:akhbar/screen/landing/landing_widget/article_list.dart';
@@ -39,13 +37,7 @@ class _LandingState extends State<Landing>  with TickerProviderStateMixin {
   }
   bool _useRtlText = false;
   bool selected_text=false;
-  List<String> iconTypes =[
-    'images/home.png',
-    'images/football.png',
-    'images/home.png',
-    'images/more.png',];
   String? colors;
- // Color get labelColor => colors != null ? colors : Colors.grey.shade300;
   Widget build(BuildContext context) {
     return  Scaffold(
       resizeToAvoidBottomInset: false,
