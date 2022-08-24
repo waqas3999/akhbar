@@ -83,8 +83,10 @@ class _LandingState extends State<Landing>  with TickerProviderStateMixin {
       },traling_iconcolor: 0xFF000000, bg_color: 0xFFFFFFFF,leading_iconcolor: 0xFF000000 ,),
       body:Column(
         children: [
+          SizedBox(height: 20,),
           Container(
-        height: 40,
+            width: MediaQuery.of(context).size.width,
+        height: 50,
         decoration: BoxDecoration(
 
             border: Border(
@@ -102,16 +104,16 @@ class _LandingState extends State<Landing>  with TickerProviderStateMixin {
               indicatorColor: tab_textcolor,
               indicator: UnderlineTabIndicator(
                 borderSide: BorderSide(width: 3,color: app_Bluecolor), //hight of indicator
-                insets: EdgeInsets.symmetric(horizontal: 12.0,), //give some padding to reduce the size of indicator
+                insets: EdgeInsets.symmetric(horizontal: 15), //give some padding to reduce the size of indicator
               ),
               tabs:[
                 for(final tab in Akhbar.akhbar.reversed)
                   TabWidget(title: tab, isSeperator: true),
               ],
               labelStyle:  TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 14,),
+                fontWeight: FontWeight.bold, fontSize: 18,),
               unselectedLabelStyle:  TextStyle(
-                  fontStyle: FontStyle.normal, fontSize: 14,),
+                  fontStyle: FontStyle.normal, fontSize: 16,),
             ),
           ),
 

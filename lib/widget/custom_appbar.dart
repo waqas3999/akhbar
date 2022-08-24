@@ -25,7 +25,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
                 height: 5,
                 child: Image.asset(leading_icon?.toString() ?? "",color:leading_iconcolor==null ? null:Color(leading_iconcolor!.toInt()),)),
           ))*/
-      IconButton(onPressed: onleadingClick, icon:ImageIcon(AssetImage(leading_icon?.toString()?? ""),size: 18,color:Color(leading_iconcolor) ,),),
+      IconButton(onPressed: onleadingClick, icon:ImageIcon(AssetImage(leading_icon?.toString()?? ""),size: 22,color:Color(leading_iconcolor) ,),),
 
 
       title: SizedBox(
@@ -35,8 +35,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
      // IconButton(onPressed: (){}, icon:ImageIcon(AssetImage(center_icon?.toString()?? "")),),
 
       centerTitle: true,
-      shadowColor: app_Whitecolor,
-      toolbarHeight: 65,
+      //shadowColor: app_Whitecolor,
+      toolbarHeight: 75,
       elevation: 0.0,
       actions: <Widget>[
        /* GestureDetector(
@@ -49,7 +49,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
                   child: trailing_icon == null  ? Container() :
                   Image.asset(trailing_icon?.toString() ?? "",
                     color:(trailing_icon==null) ? null:Color(traling_iconcolor!.toInt()),),)
-            ))*/      IconButton(onPressed: ontrailingClick,icon: trailing_icon == null  ? Container() : ImageIcon(AssetImage(trailing_icon?.toString()?? ""),size: 18,color:(traling_iconcolor==null) ? null:Color(traling_iconcolor!.toInt()),),),
+            ))*/      IconButton(onPressed: ontrailingClick,icon: trailing_icon == null  ? Container() : ImageIcon(AssetImage(trailing_icon?.toString()?? ""),size: 22,color:(traling_iconcolor==null) ? null:Color(traling_iconcolor!.toInt()),),),
       ],
     );
   }
