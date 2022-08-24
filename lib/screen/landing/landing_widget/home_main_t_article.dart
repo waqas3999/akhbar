@@ -28,7 +28,7 @@ class TotalNews_Article extends StatelessWidget {
 
           ),
         ),
-        const SizedBox(height: 10,),
+        SizedBox(height: 10,),
         ArticleList(article: "صورة المراهق الذي قتل جدته ومدرسا و19 تلميذا وجرح 15 فتكساسة", detail:"اموس اللاتيني الأصل دخل إلى المدرسة\nبمسدس، وربما ببندقية، وتصدى له أفراد من\nالشرطة بالرصاص فقتلوه.",),
 
       ],

@@ -76,7 +76,7 @@ class _LandingState extends State<Landing>  with TickerProviderStateMixin {
           ],
       )*/
       CustomAppBar(leading_icon: "images/uaccount.png",onleadingClick: (){ Navigator.push(
-          context, MaterialPageRoute(builder: (_) => SignIn()));},center_icon: "images/login.PNG",trailing_icon: "images/menub.png",ontrailingClick:(){
+          context, MaterialPageRoute(builder: (_) => SignIn()));},center_icon: "images/login.PNG",trailing_icon: "images/menu_left.png",ontrailingClick:(){
         Navigator.push(
             context, MaterialPageRoute(builder: (_) => MenuScreen()));
 
@@ -86,6 +86,7 @@ class _LandingState extends State<Landing>  with TickerProviderStateMixin {
           Container(
         height: 40,
         decoration: BoxDecoration(
+
             border: Border(
               top: BorderSide(width: 0.5, color: app_menu_textcolor),
               bottom: BorderSide(width: 0.5, color: app_menu_textcolor),
@@ -161,7 +162,7 @@ class _LandingState extends State<Landing>  with TickerProviderStateMixin {
                              ],
                            )    ),
                        const SizedBox(height: 15,),
-                           const TotalNews_Article(),
+                            TotalNews_Article(),
                        const Newslist(
                            title: "بوتين يصطحب الحقيبة\nالنووية الروسية أثناء مراسم\nعزاء في كنيسة",
                            new_images: "images/tank.PNG"),
@@ -366,7 +367,6 @@ class _LandingState extends State<Landing>  with TickerProviderStateMixin {
               //give some padding to reduce the size of indicator
              ),
             tabs:[
-
               Tab(
                 iconMargin: EdgeInsets.only(bottom: 0),
                 icon:ImageIcon(AssetImage("images/more.png"),size:22),

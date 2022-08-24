@@ -10,7 +10,6 @@ class Newslist extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.pop(context);
         Navigator.of(context).push(MaterialPageRoute(builder: (_) =>  const Landing()));
       },
       child: Container(
