@@ -4,15 +4,18 @@ import 'package:akhbar/screen/landing/landing_widget/editors_picks.dart';
 import 'package:akhbar/screen/landing/landing_widget/footballmatch_list.dart';
 import 'package:akhbar/screen/landing/landing_widget/home_main_t_article.dart';
 import 'package:akhbar/screen/landing/landing_widget/news_listarticle.dart';
+import 'package:akhbar/screen/landing/landing_widget/news_ticker.dart';
+import 'package:akhbar/screen/landing/landing_widget/rectangle_tab_indicator.dart';
+import 'package:akhbar/screen/landing/landing_widget/single_text_Article.dart';
 import 'package:akhbar/screen/landing/landing_widget/tab_widget.dart';
 import 'package:akhbar/screen/landing/landing_widget/vedio_list.dart';
+import 'package:akhbar/screen/landing/model/carousal_model.dart';
 import 'package:akhbar/screen/menu_screen/menu_screen.dart';
 import 'package:akhbar/screen/sign_in/sign_in.dart';
 import 'package:akhbar/utils/utils.dart';
 import 'package:akhbar/widget/custom_appbar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:marquee/marquee.dart';
 
 class Landing extends StatefulWidget {
   const Landing({
@@ -26,12 +29,23 @@ class Landing extends StatefulWidget {
 class _LandingState extends State<Landing> with TickerProviderStateMixin {
   late TabController _tabController;
   late TabController _tabController2;
+  late TabController _tabController3;
+  late TabController _tabController4;
 
   @override
   void initState() {
     _tabController = TabController(length: Akhbar.akhbar.length, vsync: this);
     _tabController2 = TabController(
       length: Akhbar.bottomtab.length,
+      vsync: this,
+    );
+    _tabController3 = TabController(
+      length: 2,
+      vsync: this,
+    );
+
+    _tabController4 = TabController(
+      length: 2,
       vsync: this,
     );
     super.initState();
@@ -41,12 +55,14 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin {
   void dispose() {
     _tabController.dispose();
     _tabController2.dispose();
+    _tabController3.dispose();
+    _tabController4.dispose();
     super.dispose();
   }
 
-  bool _useRtlText = false;
   bool selected_text = false;
   String? colors;
+  final carousalres = CarousalModel.fetchAll();
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -106,27 +122,22 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin {
           ),
           Container(
             width: MediaQuery.of(context).size.width,
-            height: 50,
+            height: 45,
             decoration: BoxDecoration(
                 border: Border(
               top: BorderSide(width: 0.5, color: app_menu_textcolor),
               bottom: BorderSide(width: 0.5, color: app_menu_textcolor),
             )),
             child: TabBar(
+              indicatorWeight: 10,
               controller: _tabController,
-              labelPadding: EdgeInsets.symmetric(horizontal: 0),
+              //  labelPadding: EdgeInsets.symmetric(horizontal: ),
               unselectedLabelColor: tab_unselectedcolor,
               labelColor: tab_textcolor,
               isScrollable: true,
               indicatorSize: TabBarIndicatorSize.label,
               indicatorColor: tab_textcolor,
-              indicator: UnderlineTabIndicator(
-                borderSide: BorderSide(
-                    width: 3, color: app_Bluecolor), //hight of indicator
-                insets: EdgeInsets.symmetric(
-                    horizontal:
-                        15), //give some padding to reduce the size of indicator
-              ),
+              indicator: CustomTabIndicator(color: app_Bluecolor),
               tabs: [
                 for (final tab in Akhbar.akhbar.reversed)
                   TabWidget(title: tab, isSeperator: true),
@@ -155,48 +166,7 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin {
                           const SizedBox(
                             height: 20,
                           ),
-                          Container(
-                              height: 40,
-                              width: MediaQuery.of(context).size.width,
-                              decoration: BoxDecoration(
-                                  color: app_redcolor,
-                                  borderRadius: BorderRadius.circular(
-                                      10)) // constrain the parent width so the child overflows and scrolling takes effect
-                              ,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Expanded(
-                                      child: Marquee(
-                                    scrollAxis: Axis.horizontal,
-                                    blankSpace: 20,
-                                    velocity: 40,
-                                    accelerationCurve: Curves.linear,
-                                    decelerationDuration:
-                                        Duration(milliseconds: 800),
-                                    decelerationCurve: Curves.easeOut,
-                                    /*This will first bakcward  for 0.1 sec and then move forworad */
-                                    //      text:  'رحل قرار وزير الموارد البشرية والتنمية الاجتماعية.المهندس أحمد الراجحي، بالموافقة على تعديل وتحديث دليلي التوطين لمهنتي طب الأسنان',style: home_heading2,textDirection: TextDirection.rtl,
-
-                                    text: !_useRtlText
-                                        ? 'رحل قرار وزير الموارد البشرية والتنمية الاجتماعية.المهندس أحمد الراجحي، بالموافقة على تعديل وتحديث دليلي التوطين لمهنتي طب الأسنان'
-                                        : 'رحل قرار وزير الموارد البشرية والتنمية الاجتماعية.المهندس أحمد الراجحي، بالموافقة على تعديل وتحديث دليلي التوطين لمهنتي طب الأسنان',
-                                    style: home_heading2,
-                                    textDirection: TextDirection.rtl,
-                                  )),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                  Text(
-                                    "| خبر عجل",
-                                    style: listtile_text,
-                                    textAlign: TextAlign.right,
-                                  ),
-                                  const SizedBox(
-                                    width: 20,
-                                  ),
-                                ],
-                              )),
+                          NewsTicker(),
                           const SizedBox(
                             height: 15,
                           ),
@@ -227,140 +197,29 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin {
                               const SizedBox(
                                 width: 5,
                               ),
-                              Image.asset("images/24h.PNG",
-                                  width: 40, fit: BoxFit.fill),
+                              Image.asset(
+                                "images/24h.PNG",
+                                width: 30,
+                                fit: BoxFit.fill,
+                              ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 10,
+                          SizedBox(
+                            height: 20,
                           ),
-                          CarouselSlider(
-                            // widgets
-                            items: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                        alignment: Alignment.centerRight,
-                                        width: 270,
-                                        height: 180,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            color: app_Bluecolor,
-                                            image: const DecorationImage(
-                                                image:
-                                                    AssetImage("images/s.jpg"),
-                                                fit: BoxFit.fill))),
-                                  ),
-                                  const SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    "اسم القسم",
-                                    style: red_text,
-                                    textAlign: TextAlign.right,
-                                  ),
-                                  //SizedBox(height: 5,),
-                                  Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    child: Text(
-                                      "السعودية تتحدى الغرب وترفض زيادة إنتاج النفط السبب والتداعيات؟",
-                                      style: home_heading2,
-                                      textAlign: TextAlign.right,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width,
-                                    height: 50,
-                                    child: Column(children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Text(
-                                            "13",
-                                            style: message_text,
-                                          ),
-                                          const SizedBox(
-                                            width: 5,
-                                          ),
-                                          GestureDetector(
-                                            onTap: () {},
-                                            child: Icon(
-                                              Icons.messenger,
-                                              size: 16,
-                                              color: app_menu_textcolor,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            width: 25,
-                                          ),
-                                          Text(
-                                            "2,986",
-                                            style: message_text,
-                                          ),
-                                          const SizedBox(
-                                            width: 5,
-                                          ),
-                                          GestureDetector(
-                                            onTap: () {},
-                                            child: SizedBox(
-                                                width: 18,
-                                                height: 18,
-                                                child: Image.asset(
-                                                  "images/glasses.png",
-                                                  color: app_menu_textcolor,
-                                                )),
-                                          ),
-                                          const SizedBox(
-                                            width: 20,
-                                          ),
-                                          Text(
-                                            "مون ساعات",
-                                            style: message_text,
-                                          ),
-                                          const SizedBox(
-                                            width: 3,
-                                          ),
-                                          SizedBox(
-                                              width: 8,
-                                              height: 8,
-                                              child: Image.asset(
-                                                "images/clock.png",
-                                                color: app_menu_textcolor,
-                                              )),
-                                          SizedBox(
-                                            width: 10,
-                                          ),
-                                          Image.asset(
-                                            "images/24h.PNG",
-                                            scale: 1.1,
-                                          )
-                                        ],
-                                      ),
-                                      const SizedBox(
-                                        height: 5,
-                                      ),
-                                      Divider(
-                                        height: 0.5,
-                                        color: app_menu_textcolor,
-                                        indent: 22,
-                                      )
-                                    ]),
-                                  ),
-                                ],
-                              )
-                            ],
-
-                            options: CarouselOptions(
-                                viewportFraction: 0.9,
-                                //aspectRatio: 2.0,
-                                //  initialPage: 2,
-                                height: 350),
-                          ),
-                          ArticleList()
+                          CarouselSlider.builder(
+                              itemCount: carousalres.length,
+                              itemBuilder: Carousal_item,
+                              options: CarouselOptions(
+                                  pageSnapping: true,
+                                  scrollPhysics: NeverScrollableScrollPhysics(),
+                                  clipBehavior: Clip.hardEdge,
+                                  viewportFraction: 0.9,
+                                  //aspectRatio: 2.0,
+                                  initialPage: 0,
+                                  height: 300)),
+                          ArticleList(),
+                          SingleTextAticle()
                           /* ArticleList(
                               article:
                                   "بدء سريان قرار 7 آلاف ريال حدا\nأدنى لراتب أطباء الأسنان\nوالصيادلة للاحتساب في\n نسب التوطين",
@@ -380,7 +239,7 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin {
                                   "بدء سريان قرار 7 آلاف ريال حداأدنى لراتب أطباء\nالأسنان والصيادلة للاحتساب في نسب التوطينسة"),*/
                           ,
                           SizedBox(
-                            height: 30,
+                            height: 10,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -393,17 +252,17 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin {
                                 width: 5,
                               ),
                               Image.asset("images/24h.PNG",
-                                  width: 40, fit: BoxFit.fill),
+                                  width: 30, fit: BoxFit.fill),
                             ],
                           ),
-                          Container(
+                          /*  Container(
                             width: MediaQuery.of(context).size.width,
                             child: Text(
                               "الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا هاما يشمل تأشيرات جديدة",
                               style: home_heading2,
                               textAlign: TextAlign.right,
                             ),
-                          ),
+                          ),*/
                           /*         const VedioList(
                             text:
                                 'الإمارات تقر نظاما جديدا للإقامة. 19 تعديلا\nهاما يشمل تأشيرات جديدة',
@@ -574,6 +433,74 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin {
                           const SizedBox(
                             height: 20,
                           ),
+                          Divider(
+                            height: 0.5,
+                            color: app_menu_textcolor,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "عرض الكل",
+                                style: txtfield_menu,
+                              ),
+                              const Spacer(),
+                              Text(
+                                "الأكثر رواجا",
+                                style: home_heading2,
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 400,
+                            decoration: BoxDecoration(
+                                color: app_menu_textcolor,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Column(
+                              children: [
+                                /*  TabBar(
+                                  controller: _tabController3,
+                                  unselectedLabelColor: tab_unselectedcolor,
+                                  labelColor: app_Blackcolor,
+                                  indicatorSize: TabBarIndicatorSize.label,
+                                  indicatorColor: Colors.black,
+                                  indicator: UnderlineTabIndicator(
+                                    borderSide: BorderSide(
+                                        width: 2, color: app_Bluecolor),
+                                    //hight of indicator
+                                    insets: EdgeInsets.symmetric(
+                                        horizontal: 4.0, vertical: 10),
+                                    //give some padding to reduce the size of indicator
+                                  ),
+                                  tabs: [
+                                    Tab(
+                                        iconMargin: EdgeInsets.only(bottom: 0),
+                                        text: "المزيد"),
+                                    Tab(
+                                      iconMargin: EdgeInsets.only(bottom: 0),
+                                      text: 'دوليات',
+                                    ),
+                                  ],
+                                  labelStyle: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                  unselectedLabelStyle: TextStyle(
+                                      fontStyle: FontStyle.normal,
+                                      fontSize: 14),
+                                )*/
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          )
                         ],
                       ),
                     ),
@@ -693,4 +620,113 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin {
     )*/
     );
   }
+
+  Widget Carousal_item(BuildContext context, int index, realIndex) => Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Expanded(
+            child: Container(
+                alignment: Alignment.centerRight,
+                width: 270,
+                height: 180,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: app_Bluecolor,
+                    image: DecorationImage(
+                        image: AssetImage(/*"images/s.jpg"*/ carousalres[index]
+                            .image_slider
+                            .toString()),
+                        fit: BoxFit.fill))),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+
+          Text(
+            carousalres[index].titie.toString() /*"اسم القسم"*/,
+            style: red_text,
+            textAlign: TextAlign.right,
+          ),
+          //SizedBox(height: 5,),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            child: Text(
+              /*"السعودية تتحدى الغرب وترفض زيادة إنتاج النفط السبب والتداعيات؟"*/ carousalres[
+                      index]
+                  .detail
+                  .toString(),
+              style: home_heading2,
+              textAlign: TextAlign.right,
+            ),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: 50,
+            child: Column(children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    "13",
+                    style: message_text,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Icon(
+                    Icons.messenger,
+                    size: 14,
+                    color: app_menu_textcolor,
+                  ),
+                  const SizedBox(
+                    width: 25,
+                  ),
+                  Text(
+                    "2,986",
+                    style: message_text,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Image.asset(
+                    "images/glasses.png",
+                    color: app_menu_textcolor,
+                    width: 18,
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    "مون ساعات",
+                    style: message_text,
+                  ),
+                  const SizedBox(
+                    width: 3,
+                  ),
+                  Image.asset(
+                    "images/clock.png",
+                    color: app_menu_textcolor,
+                    width: 8,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Image.asset(
+                    "images/24h.PNG",
+                    width: 30,
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Divider(
+                height: 0.5,
+                color: app_menu_textcolor,
+                indent: 22,
+              )
+            ]),
+          ),
+        ],
+      );
 }

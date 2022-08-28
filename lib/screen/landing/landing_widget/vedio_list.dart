@@ -28,6 +28,9 @@ class VedioList extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
+                      SizedBox(
+                        height: 10,
+                      ),
                       Container(
                         width: MediaQuery.of(context).size.width,
                         height: 190,
@@ -47,7 +50,7 @@ class VedioList extends StatelessWidget {
                           width: MediaQuery.of(context).size.width,
                           child: Text(
                             vediolist_m[index].text.toString(),
-                            style: home_heading2,
+                            style: vedio_text,
                             textAlign: TextAlign.right,
                           )),
                       const SizedBox(

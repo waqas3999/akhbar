@@ -21,15 +21,21 @@ Color headline2 = const Color(0xFF777777);
 Color tab_textcolor = const Color(0xFF0A0A0A);
 Color tab_unselectedcolor = const Color(0xFFA7A7A7);
 Color botttombar_color = const Color(0xFFF4F4F4);
-TextStyle red_text = GoogleFonts.notoSansArabic(
+TextStyle red_text = GoogleFonts.poppins(
     fontSize: 19,
     fontWeight: FontWeight.w600,
     color: app_redcolor,
     fontStyle: FontStyle.normal,
     letterSpacing: 63.5 * (-0.5 / 100));
 TextStyle heading1 = GoogleFonts.poppins(
-    fontSize: 17,
-    fontWeight: FontWeight.w400,
+    fontSize: 19,
+    fontWeight: FontWeight.w600,
+    color: app_Blackcolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 18.4 * (2 / 100));
+TextStyle heading2 = GoogleFonts.poppins(
+    fontSize: 19,
+    fontWeight: FontWeight.w600,
     color: app_Blackcolor,
     fontStyle: FontStyle.normal,
     letterSpacing: 18.4 * (3 / 100));
@@ -49,7 +55,7 @@ TextStyle selected_tabStyle = GoogleFonts.poppins(
 );
 TextStyle login = GoogleFonts.poppins(
   fontSize: 22,
-  fontWeight: FontWeight.w700,
+  fontWeight: FontWeight.w600,
   color: app_Blackcolor,
   fontStyle: FontStyle.normal,
   letterSpacing: 20 * (3 / 100),
@@ -116,7 +122,7 @@ TextStyle home_heading1 = GoogleFonts.poppins(
     fontWeight: FontWeight.w600,
     color: app_Blackcolor,
     fontStyle: FontStyle.normal,
-    letterSpacing: 63.5 * (3 / 100));
+    letterSpacing: 18.4 * (3 / 100));
 
 TextStyle goal_blue_style = GoogleFonts.poppins(
     fontSize: 30,
@@ -131,24 +137,31 @@ TextStyle goal_red_style = GoogleFonts.poppins(
     fontStyle: FontStyle.normal,
     letterSpacing: 63.5 * (-0.5 / 100));
 
+TextStyle single_text = GoogleFonts.poppins(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: app_Blackcolor,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 18.4 * (2 / 100));
+
 TextStyle home_heading2 = GoogleFonts.poppins(
-    fontSize: 16,
-    fontWeight: FontWeight.w400,
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
     color: app_Blackcolor,
     fontStyle: FontStyle.normal,
     letterSpacing: 18.4 * (3 / 100));
-TextStyle twitter_text = GoogleFonts.poppins(
-    fontSize: 15,
-    fontWeight: FontWeight.w200,
-    color: app_Whitecolor,
+TextStyle vedio_text = GoogleFonts.poppins(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: app_Blackcolor,
     fontStyle: FontStyle.normal,
     letterSpacing: 63.5 * (-0.5 / 100));
 TextStyle message_text = GoogleFonts.poppins(
-    fontSize: 14,
-    fontWeight: FontWeight.w200,
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
     color: app_menu_textcolor,
     fontStyle: FontStyle.normal,
-    letterSpacing: 63.5 * (-0.5 / 100));
+    letterSpacing: 18.4 * (3 / 100));
 
 ///Hello,
 /*

@@ -1,4 +1,3 @@
-import 'package:akhbar/screen/landing/landing_widget/article_bottom_section.dart';
 import 'package:akhbar/screen/landing/model/homemain_artocle.dart';
 import 'package:akhbar/screen/searching.dart';
 import 'package:akhbar/utils/utils.dart';
@@ -37,6 +36,9 @@ class TotalNews_Article extends StatelessWidget {
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
+                        SizedBox(
+                          height: 20,
+                        ),
                         Container(
                             width: MediaQuery.of(context).size.width,
                             child: Text(
@@ -55,8 +57,77 @@ class TotalNews_Article extends StatelessWidget {
                   //   SizedBox(height: 5),
 //          ArticleList(article: "صورة المراهق الذي قتل جدته ومدرسا و19 تلميذا وجرح 15 فتكساسة", detail:"اموس اللاتيني الأصل دخل إلى المدرسة\nبمسدس، وربما ببندقية، وتصدى له أفراد من\nالشرطة بالرصاص فقتلوه.",),
                 ),
-                ArtcleBottom_Section(),
-                SizedBox(height: 10),
+                SizedBox(height: 15),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: 50,
+                  child: Column(children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "13",
+                              style: message_text,
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(
+                              width: 3,
+                            ),
+                            Icon(
+                              Icons.messenger,
+                              size: 10,
+                              color: app_menu_textcolor,
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          width: 25,
+                        ),
+                        Text(
+                          "2,986",
+                          style: message_text,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Image.asset(
+                          "images/glasses.png",
+                          color: app_menu_textcolor,
+                          width: 18,
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          "مون ساعات",
+                          style: message_text,
+                        ),
+                        const SizedBox(
+                          width: 3,
+                        ),
+                        Image.asset(
+                          "images/clock.png",
+                          color: app_menu_textcolor,
+                          width: 9,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Image.asset(
+                          "images/24h.PNG",
+                          width: 30,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Divider(height: 0.5, color: app_menu_textcolor)
+                  ]),
+                ),
               ]));
         });
   }

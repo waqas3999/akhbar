@@ -31,33 +31,41 @@ class Newslist extends StatelessWidget {
                   border: Border(
                       bottom:
                           BorderSide(width: 0.5, color: app_menu_textcolor))),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                        alignment: Alignment.center,
-                        child: Text(news[index].title,
-                            style: heading1, textAlign: TextAlign.right)),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Container(
-                    width: 80,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: app_Bluecolor,
-                      borderRadius: BorderRadius.circular(5),
-                      image: DecorationImage(
-                        image: AssetImage(news[index].new_images.toString()),
-                        fit: BoxFit.fill,
+              child: Column(children: [
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                          alignment: Alignment.center,
+                          child: Text(news[index].title,
+                              style: heading2, textAlign: TextAlign.right)),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Container(
+                      width: 80,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: app_Bluecolor,
+                        borderRadius: BorderRadius.circular(5),
+                        image: DecorationImage(
+                          image: AssetImage(news[index].new_images.toString()),
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                )
+              ]),
             ),
           );
         });
